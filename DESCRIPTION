@@ -1,11 +1,11 @@
 Package: decisionSupport
 Type: Package
 Title: Quantitative Support of Decision Making under Uncertainty
-Version: 1.101.1
-Date: 2015-05-19
+Version: 1.101.2
+Date: 2016-04-25
 Authors@R: c(
-    person("Lutz", "Göhring",  email = "lutz.goehring@gmx.de",  role = c("cre", "aut"), comment="ICRAF and Lutz Göhring Consulting"),
-    person("Eike", "Luedeling", email = "eike@eikeluedeling.com ", role = "aut", comment="ICRAF"))
+    person("Eike", "Luedeling",  email = "eike@eikeluedeling.com",  role = c("cre", "aut"), comment="ICRAF"),
+    person("Lutz", "Göhring", email = "lutz.goehring@gmx.de", role = "aut", comment="ICRAF and Lutz Göhring Consulting"))
 Copyright: World Agroforestry Centre (ICRAF) 2015
 Description: Supporting the quantitative analysis of binary welfare based
     decision making processes using Monte Carlo simulations. Decision support
@@ -17,28 +17,30 @@ Description: Supporting the quantitative analysis of binary welfare based
     improve the actual decision making process. This problem is dealt with
     using the Value of Information Analysis. The Expected Value of
     Information for arbitrary prospective estimates can be calculated as
-    well as Individual and Clustered Expected Value of Perfect Information.
+    well as Individual Expected Value of Perfect Information.
     The probabilistic calculations are done via Monte Carlo
     simulations. This Monte Carlo functionality can be used on its own.
 License: GPL-3
 Depends: R (>= 3.1.3)
 Imports: msm (>= 1.5), mvtnorm (>= 1.0.2), stats (>= 3.1.3)
-Suggests: chillR (>= 0.54), eha (>= 2.4.2), mc2d (>= 0.1.15), nleqslv
+Suggests: chillR (>= 0.62), eha (>= 2.4.2), mc2d (>= 0.1.15), nleqslv
         (>= 2.6), pls (>= 2.4.3), rriskDistributions (>= 2.0), testthat
         (>= 0.9.1), knitr
 URL: http://www.worldagroforestry.org/
 Encoding: UTF-8
-Collate: 'rmvnorm90ci_exact.R' 'rdistq_fit.R' 'random.R'
-        'paramtnormci_numeric.R' 'paramtnormci_fit.R' 'rtnorm90ci.R'
-        'rdist90ci_exact.R' 'estimate1d.R' 'estimate.R'
-        'mcSimulation.R' 'welfareDecisionAnalysis.R' 'eviSimulation.R'
+Classification/JEL: I38, O16, O21, O22, O23
+Collate: 'paramtnormci_fit.R' 'paramtnormci_numeric.R' 'rtnorm90ci.R'
+        'rdistq_fit.R' 'rdist90ci_exact.R' 'estimate1d.R' 'random.R'
+        'rmvnorm90ci_exact.R' 'estimate.R' 'mcSimulation.R'
+        'welfareDecisionAnalysis.R' 'eviSimulation.R'
         'individualEvpiSimulation.R' 'estimate_read_csv_old.R'
         'decisionSupport.R' 'decisionSupport-package.R'
         'plainNames2data.frameNames.R' 'plsr.mcSimulation.R'
-Packaged: 2015-05-19 18:26:37 UTC; goehring
-Author: Lutz Göhring [cre, aut] (ICRAF and Lutz Göhring Consulting),
-  Eike Luedeling [aut] (ICRAF)
-Maintainer: Lutz Göhring <lutz.goehring@gmx.de>
+RoxygenNote: 5.0.1
 NeedsCompilation: no
+Packaged: 2016-04-25 16:08:07 UTC; USER
+Author: Eike Luedeling [cre, aut] (ICRAF),
+  Lutz Göhring [aut] (ICRAF and Lutz Göhring Consulting)
+Maintainer: Eike Luedeling <eike@eikeluedeling.com>
 Repository: CRAN
-Date/Publication: 2015-05-20 01:20:39
+Date/Publication: 2016-04-26 08:44:15
