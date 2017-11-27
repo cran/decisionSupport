@@ -12,7 +12,7 @@
 
 <meta name="author" content="Eike Luedeling and Cory Whitney, University of Bonn, Germany" />
 
-<meta name="date" content="2017-11-26" />
+<meta name="date" content="2017-11-27" />
 
 <title>Controlled burns in conifer forests</title>
 
@@ -268,7 +268,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Controlled burns in conifer forests</h1>
 <h4 class="author"><em>Eike Luedeling and Cory Whitney, University of Bonn, Germany</em></h4>
-<h4 class="date"><em>2017-11-26</em></h4>
+<h4 class="date"><em>2017-11-27</em></h4>
 
 
 
@@ -342,22 +342,22 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## 2     2    0          1
 ## 3     3    0          0
 ## 4     4    0          1
-## 5     5    0          0
-## 6     6    0          1
+## 5     5    1          0
+## 6     6    1          1
 ## 7     7    0          0
 ## 8     8    0          1
 ## 9     9    0          0
 ## 10   10    0          1
-## 11   11    0          0
-## 12   12    0          1
-## 13   13    0          0
-## 14   14    0          1
-## 15   15    0          0
+## 11   11    1          0
+## 12   12    1          1
+## 13   13    1          0
+## 14   14    1          1
+## 15   15    1          0
 ## 16   16    0          1
-## 17   17    1          0
+## 17   17    0          0
 ## 18   18    1          1
 ## 19   19    0          0
-## 20   20    0          1</code></pre>
+## 20   20    1          1</code></pre>
 <p>We want to distinguish between mild and severe fires, because these differ strongly in the impact on the ecosystem and in the costs incurred in fighting the fire. To determine whether a fire is mild or severe, we simulate the amount of combustible biomass that has accumulated in a given year. When this biomass exceeds the threshold <code>severity_threshold</code> (from the input table) at the time of a wildfire outbreak, we classify the fire as severe, otherwise as mild.</p>
 <p>To do this, we first have to simulate the amount of combustible biomass. We start by setting up two data.frames to store the results of this simulation, one for the no-burn scenario (<code>no.control</code>), and one for the scenario with controlled burns (<code>control</code>):</p>
 <pre class="sourceCode r" id="cb7"><code class="sourceCode r"><div class="sourceLine" id="cb7-1" data-line-number="1">no.control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), </div>
@@ -429,50 +429,50 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div class="sourceLine" id="cb9-25" data-line-number="25">  } <span class="co">#end of year loop 'no burn' scenario</span></div></code></pre>
 <p>At this point, the fire time series is complete, with all information stored in the data.frames <code>control</code> and <code>no.control</code>:</p>
 <pre class="sourceCode r" id="cb10"><code class="sourceCode r"><div class="sourceLine" id="cb10-1" data-line-number="1">control</div></code></pre>
-<pre><code>##    Year   Biomass   FireType
-## 1     1  78.75040       None
-## 2     2 149.47890 Controlled
-## 3     3  21.49238       None
-## 4     4  40.79544 Controlled
-## 5     5  21.49238       None
-## 6     6  40.79544 Controlled
-## 7     7  21.49238       None
-## 8     8  40.79544 Controlled
-## 9     9  21.49238       None
-## 10   10  40.79544 Controlled
-## 11   11  21.49238       None
-## 12   12  40.79544 Controlled
-## 13   13  21.49238       None
-## 14   14  40.79544 Controlled
-## 15   15  21.49238       None
-## 16   16  40.79544 Controlled
-## 17   17  21.49238       Mild
-## 18   18  17.39176 Controlled
-## 19   19  21.49238       None
-## 20   20  40.79544 Controlled</code></pre>
+<pre><code>##    Year  Biomass   FireType
+## 1     1 52.80652       None
+## 2     2 89.28642 Controlled
+## 3     3 20.50844       None
+## 4     4 34.67611 Controlled
+## 5     5 20.50844       Mild
+## 6     6 12.23814 Controlled
+## 7     7 20.50844       None
+## 8     8 34.67611 Controlled
+## 9     9 20.50844       None
+## 10   10 34.67611 Controlled
+## 11   11 20.50844       Mild
+## 12   12 12.23814 Controlled
+## 13   13 20.50844       Mild
+## 14   14 12.23814 Controlled
+## 15   15 20.50844       Mild
+## 16   16 12.23814 Controlled
+## 17   17 20.50844       None
+## 18   18 34.67611 Controlled
+## 19   19 20.50844       None
+## 20   20 34.67611 Controlled</code></pre>
 <pre class="sourceCode r" id="cb12"><code class="sourceCode r"><div class="sourceLine" id="cb12-1" data-line-number="1">no.control</div></code></pre>
-<pre><code>##    Year      Biomass FireType
-## 1     1 7.875040e+01     None
-## 2     2 1.494789e+02     None
-## 3     3 2.837312e+02     None
-## 4     4 5.385601e+02     None
-## 5     5 1.022260e+03     None
-## 6     6 1.940388e+03     None
-## 7     7 3.683118e+03     None
-## 8     8 6.991057e+03     None
-## 9     9 1.326997e+04     None
-## 10   10 2.518820e+04     None
-## 11   11 4.781061e+04     None
-## 12   12 9.075100e+04     None
-## 13   13 1.722577e+05     None
-## 14   14 3.269684e+05     None
-## 15   15 6.206302e+05     None
-## 16   16 1.178040e+06     None
-## 17   17 2.236079e+06   Severe
-## 18   18 2.802962e+00     Mild
-## 19   19 1.739176e+01     None
-## 20   20 3.301192e+01     None</code></pre>
-<p>In the above simulation, the <code>controlled_burning_frequency</code> was 2 and the severity_threshold 52.</p>
+<pre><code>##    Year    Biomass FireType
+## 1     1  52.806524     None
+## 2     2  89.286415     None
+## 3     3 150.967407     None
+## 4     4 255.258966     None
+## 5     5 431.597395   Severe
+## 6     6   3.685609     Mild
+## 7     7  12.238140     None
+## 8     8  20.692513     None
+## 9     9  34.987350     None
+## 10   10  59.157370     None
+## 11   11 100.024565   Severe
+## 12   12   3.685609     Mild
+## 13   13  12.238140     Mild
+## 14   14  12.238140     Mild
+## 15   15  12.238140     Mild
+## 16   16  12.238140     None
+## 17   17  20.692513     None
+## 18   18  34.987350     Mild
+## 19   19  12.238140     None
+## 20   20  20.692513     Mild</code></pre>
+<p>In the above simulation, the <code>controlled_burning_frequency</code> was 2 and the severity_threshold 93.</p>
 <p>With this information we can move on to computing the cost implications for each scenario. We only consider three types of costs: the cost of controlled burning (<code>cost_of_controlled_burning</code>), the cost of fighting fires (<code>fire_fighting_cost</code>), and the value of the environmental damage caused by a fire (<code>env_imp</code>). We distinguish between severe and mild fires, so we get separate variables for the cost of firefighting (<code>fire_fighting_cost_mild_fire</code> and <code>fire_fighting_cost_severe_fire</code>) and the environmental impacts (<code>env_imp_mild_fire</code> and <code>env_imp_severe_fire</code>). For each year and each scenario, the applicable costs are selected (depending on the fire type) and added up to produce the total cost for each option. The result is then multiplied by the area under consideration (<code>area_size</code>) to produce the total cost.</p>
 <pre class="sourceCode r" id="cb14"><code class="sourceCode r"><div class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># calculate costs of no.control treatment -------------------------</span></div>
 <div class="sourceLine" id="cb14-2" data-line-number="2">  </div>
@@ -505,19 +505,19 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <pre class="sourceCode r" id="cb15"><code class="sourceCode r"><div class="sourceLine" id="cb15-1" data-line-number="1">benefit_of_controlled_burning &lt;-<span class="st"> </span>bottomline_contr_burn <span class="op">-</span><span class="st"> </span>bottomline_no_burn</div></code></pre>
 <p>This produces, for example:</p>
 <pre class="sourceCode r" id="cb16"><code class="sourceCode r"><div class="sourceLine" id="cb16-1" data-line-number="1">bottomline_no_burn</div></code></pre>
-<pre><code>##  [1]      0.000      0.000      0.000      0.000      0.000      0.000
-##  [7]      0.000      0.000      0.000      0.000      0.000      0.000
-## [13]      0.000      0.000      0.000      0.000 -10500.798    362.457
-## [19]      0.000      0.000</code></pre>
+<pre><code>##  [1]      0.0000      0.0000      0.0000      0.0000 -10512.5571
+##  [6]   -309.0363      0.0000      0.0000      0.0000      0.0000
+## [11] -10512.5571   -309.0363   -309.0363   -309.0363   -309.0363
+## [16]      0.0000      0.0000   -309.0363      0.0000   -309.0363</code></pre>
 <pre class="sourceCode r" id="cb18"><code class="sourceCode r"><div class="sourceLine" id="cb18-1" data-line-number="1">bottomline_contr_burn</div></code></pre>
-<pre><code>##  [1]    0.0000 -697.1222    0.0000 -697.1222    0.0000 -697.1222    0.0000
-##  [8] -697.1222    0.0000 -697.1222    0.0000 -697.1222    0.0000 -697.1222
-## [15]    0.0000 -697.1222  362.4570 -697.1222    0.0000 -697.1222</code></pre>
+<pre><code>##  [1]    0.0000 -743.4532    0.0000 -743.4532 -309.0363 -743.4532    0.0000
+##  [8] -743.4532    0.0000 -743.4532 -309.0363 -743.4532 -309.0363 -743.4532
+## [15] -309.0363 -743.4532    0.0000 -743.4532    0.0000 -743.4532</code></pre>
 <pre class="sourceCode r" id="cb20"><code class="sourceCode r"><div class="sourceLine" id="cb20-1" data-line-number="1">benefit_of_controlled_burning</div></code></pre>
-<pre><code>##  [1]     0.0000  -697.1222     0.0000  -697.1222     0.0000  -697.1222
-##  [7]     0.0000  -697.1222     0.0000  -697.1222     0.0000  -697.1222
-## [13]     0.0000  -697.1222     0.0000  -697.1222 10863.2546 -1059.5792
-## [19]     0.0000  -697.1222</code></pre>
+<pre><code>##  [1]     0.0000  -743.4532     0.0000  -743.4532 10203.5208  -434.4169
+##  [7]     0.0000  -743.4532     0.0000  -743.4532 10203.5208  -434.4169
+## [13]     0.0000  -434.4169     0.0000  -743.4532     0.0000  -434.4169
+## [19]     0.0000  -434.4169</code></pre>
 <p>The last step in this decision model is to compute the total benefits by summing up the yearly values. A slight complication in this is that very few people are indifferent about the time at which they are faced with costs or benefits. Most people would prefer to have income now over having that same income in the future, and they feel the opposite way about expenses (most prefer expenses later). This characteristic is known as the time preference. We also say that people ‘discount’ future costs and benefits. This is considered when calculating the so-called Net Present Value (NPV), which discounts future costs or benefits by an investor-specific discount rate. Usually, the further in the future these costs and benefits occur, the lower their perceived value. <code>decisionSupport</code> provides a discounting function called <code>discount()</code>, which implements the standard equation used by economists to compute the NPV. For example, a discount rate of 4% applied to a regular income stream of 100 dollars per year over 10 years would produce:</p>
 <pre class="sourceCode r" id="cb22"><code class="sourceCode r"><div class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">discount</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">100</span>,<span class="dv">10</span>)),<span class="dt">discount_rate =</span> <span class="dv">4</span>)</div></code></pre>
 <pre><code>##  [1] 100.00000  96.15385  92.45562  88.89964  85.48042  82.19271  79.03145

@@ -1,4 +1,4 @@
-177821d34a4b36fdbb5cab385350f5da *DESCRIPTION
+0f5df65991ac6f28031686c7b0acab84 *DESCRIPTION
 04af0c0300804258191365b65f3430fe *NAMESPACE
 4735db6853ebbff1582a7109b975a4fe *R/chance_event.R
 b59b9df89ee099f8b668cfc1cfa87877 *R/decisionSupport-package.R
@@ -29,8 +29,8 @@ e9f3f2f6708f5e19c9674316cfce4c2f *R/rmvnorm90ci_exact.R
 1a95fddea0177bcd66eba7552870fe9c *R/welfareDecisionAnalysis.R
 c20a2ba02164d285cc5488054c4e7b4e *build/vignette.rds
 7cfa7a5eb7eb57852c32e7b884ae9b88 *inst/doc/wildfire_example.R
-c7347f2cf1d4d22d9143feae5ff05749 *inst/doc/wildfire_example.Rmd
-ad623237eafd1c99d761ce3e024e6a83 *inst/doc/wildfire_example.html
+5a9a29ba34ae7eda2cd1ed7b2f6ba211 *inst/doc/wildfire_example.Rmd
+bdb66d0c87c2c34bdee8d87fdd9741db *inst/doc/wildfire_example.html
 b37f954ed8682eca75b37e0adfb5a124 *inst/extdata/profit-4.csv
 838acd62fcba438b038b92c18ed02ce5 *inst/extdata/profit-4_cor.csv
 2412b93faf35568c53d949fd7585fb7f *man/as.data.frame.mcSimulation.Rd
@@ -78,7 +78,7 @@ cb88877815ba113c52718c039571d9df *man/summary.welfareDecisionAnalysis.Rd
 dba04cb51254910a492393330ef01d80 *man/temp_situations.Rd
 7a061756b2fd7db5ef026c81013864ac *man/vv.Rd
 d3e062965268b263709cb5cbe1898947 *man/welfareDecisionAnalysis.Rd
-25e7e332dbbc8b458812c741888429b4 *tests/testthat.R
+7b5ac009a5d7d07c7286df760a3ff013 *tests/testthat.R
 822f316e3fed8a6c4c8b6a9c19785dd3 *tests/testthat/estimate5d.csv
 58ec06f2616b4bc2165b928efee501e2 *tests/testthat/profit-1.csv
 58ec06f2616b4bc2165b928efee501e2 *tests/testthat/profit-2.csv
@@ -88,7 +88,7 @@ cfb689c392259808ad333abd5b10e9a9 *tests/testthat/profit-2_cor.csv
 ff1dc5da21adda53a487e20628aa56e2 *tests/testthat/profit-4_cor.csv
 edcccee03e507ff5ac303652f4e7bb6c *tests/testthat/test_estimate1d.R
 811fda979f54202e627ce760f42222ac *tests/testthat/test_estimate_read_csv.R
-556a555af814d19e1d4ae9d0bce4c58e *tests/testthat/test_individualEvpiSimulation.R
+44778e83c8f53915ada3e52175045457 *tests/testthat/test_individualEvpiSimulation.R
 90550f4cd5259b80adbd7b3e3532ab58 *tests/testthat/test_mcSimulaton.R
 421acd3a753d3f96d5badc9dc36feb95 *tests/testthat/test_random.estimate.R
 a4405866549040db215c3710510cfccc *tests/testthat/test_rdist90ci_exact.R
@@ -96,14 +96,15 @@ a4405866549040db215c3710510cfccc *tests/testthat/test_rdist90ci_exact.R
 941290ef81b66b90875a275526dffb68 *tests/testthat/test_rmvnorm90ci_exact.R
 06e653ee824cf3789cb1f72e372dcf2f *tests/testthat/test_rtnorm90ci.R
 494c050d1530a64ce27e158504b1a326 *tests/testthat/test_welfareDecisionAnalysis.R
-23b121b3a33de617dbd544cc9b533db9 *vignettes/MCresults/NPV_controlled_burning_PLS_VIP.png
-9d4e6f63b478623a75074355e04819eb *vignettes/MCresults/NPV_controlled_burning_distribution.png
-ccc858c7faf32b0a0cfb9153400750f9 *vignettes/MCresults/NPV_controlled_burning_pls_results.csv
-a37c470d12b0d0a644087a059beb2a91 *vignettes/MCresults/mcSimulationResults.csv
-be850bb199d7fa3636b7ca866de9222d *vignettes/MCresults/mcSummary.csv
-7b5102f30fb05b10e4cc9303a284b477 *vignettes/MCresults/welfareDecisionSummary.csv
+23b121b3a33de617dbd544cc9b533db9 *vignettes/MCResults/NPV_controlled_burning_PLS_VIP.png
+9d4e6f63b478623a75074355e04819eb *vignettes/MCResults/NPV_controlled_burning_distribution.png
+ccc858c7faf32b0a0cfb9153400750f9 *vignettes/MCResults/NPV_controlled_burning_pls_results.csv
+a37c470d12b0d0a644087a059beb2a91 *vignettes/MCResults/mcSimulationResults.csv
+be850bb199d7fa3636b7ca866de9222d *vignettes/MCResults/mcSummary.csv
+7b5102f30fb05b10e4cc9303a284b477 *vignettes/MCResults/welfareDecisionSummary.csv
 92f51ee07d4a771040d69ada859f6d48 *vignettes/agricultural-and-forest-meteorology.csl
 f08e4f452e29546530d05b00a0ccfa52 *vignettes/elsevier-harvard.csl
+9a4cbb964a34c2d26f8c0a6bda2b697d *vignettes/rsconnect/documents/wildfire_example.Rmd/rpubs.com/rpubs/Document.dcf
 d41d8cd98f00b204e9800998ecf8427e *vignettes/wildfire.Data/rdb/csort.MYD
 3be7dd48fa3157f3cd000378d22082b6 *vignettes/wildfire.Data/rdb/csort.MYI
 bdee7e3e9d21ff4fa4691bb1d0694800 *vignettes/wildfire.Data/rdb/csort.frm
@@ -150,5 +151,5 @@ d41d8cd98f00b204e9800998ecf8427e *vignettes/wildfire.Data/tdb/terms.MYD
 4ff60e31c02fb6d9aabef7e3041cf7b7 *vignettes/wildfire.Data/tdb/terms.frm
 2387a5b50d2778fff9d3a90360800dff *vignettes/wildfire.bib
 cd67d0d6293c5826d445af8af5c08189 *vignettes/wildfire_diagram.png
-c7347f2cf1d4d22d9143feae5ff05749 *vignettes/wildfire_example.Rmd
+5a9a29ba34ae7eda2cd1ed7b2f6ba211 *vignettes/wildfire_example.Rmd
 b2c391968bffa55713a4534c57284a6f *vignettes/wildfire_input_table.csv
