@@ -1,4 +1,4 @@
-0f5df65991ac6f28031686c7b0acab84 *DESCRIPTION
+8cc2f35924667f47403492f46c183241 *DESCRIPTION
 04af0c0300804258191365b65f3430fe *NAMESPACE
 4735db6853ebbff1582a7109b975a4fe *R/chance_event.R
 b59b9df89ee099f8b668cfc1cfa87877 *R/decisionSupport-package.R
@@ -10,7 +10,7 @@ dfeca167048b25d464881de2a4592de9 *R/estimate_read_csv_old.R
 ada40ee8c85e4fe9e5617a43e52fda63 *R/eviSimulation.R
 8cbf8b7aa2d025b242e646d7aac3f03a *R/gompertz_yield.R
 8828c5d1d05276bc4088f24df03d39dd *R/individualEvpiSimulation.R
-f2ce3aff214be611708ff68fb40aee47 *R/make_CPT.R
+e3753196041bf03141a922dfe28f71c7 *R/make_CPT.R
 b7b87b607e4638a8dfea65c8c0cc77ba *R/mcSimulation.R
 3fd4ac7a5c5771bacd27f5eeb4fdd58c *R/paramtnormci_fit.R
 8c232716c8fe812a29cf3c87b4c9bd25 *R/paramtnormci_numeric.R
@@ -27,10 +27,10 @@ e9f3f2f6708f5e19c9674316cfce4c2f *R/rmvnorm90ci_exact.R
 2e7e1338b06847fe064ff367d4b612dd *R/temp_situations.R
 4188badfe19adeee00deb53d289444e7 *R/vv.R
 1a95fddea0177bcd66eba7552870fe9c *R/welfareDecisionAnalysis.R
-c20a2ba02164d285cc5488054c4e7b4e *build/vignette.rds
+41945a2c5bd84d6687bfeb304066e258 *build/vignette.rds
 7cfa7a5eb7eb57852c32e7b884ae9b88 *inst/doc/wildfire_example.R
 5a9a29ba34ae7eda2cd1ed7b2f6ba211 *inst/doc/wildfire_example.Rmd
-bdb66d0c87c2c34bdee8d87fdd9741db *inst/doc/wildfire_example.html
+fac8d345d82f34cc82eb50716c54e406 *inst/doc/wildfire_example.html
 b37f954ed8682eca75b37e0adfb5a124 *inst/extdata/profit-4.csv
 838acd62fcba438b038b92c18ed02ce5 *inst/extdata/profit-4_cor.csv
 2412b93faf35568c53d949fd7585fb7f *man/as.data.frame.mcSimulation.Rd
@@ -104,7 +104,6 @@ be850bb199d7fa3636b7ca866de9222d *vignettes/MCResults/mcSummary.csv
 7b5102f30fb05b10e4cc9303a284b477 *vignettes/MCResults/welfareDecisionSummary.csv
 92f51ee07d4a771040d69ada859f6d48 *vignettes/agricultural-and-forest-meteorology.csl
 f08e4f452e29546530d05b00a0ccfa52 *vignettes/elsevier-harvard.csl
-9a4cbb964a34c2d26f8c0a6bda2b697d *vignettes/rsconnect/documents/wildfire_example.Rmd/rpubs.com/rpubs/Document.dcf
 d41d8cd98f00b204e9800998ecf8427e *vignettes/wildfire.Data/rdb/csort.MYD
 3be7dd48fa3157f3cd000378d22082b6 *vignettes/wildfire.Data/rdb/csort.MYI
 bdee7e3e9d21ff4fa4691bb1d0694800 *vignettes/wildfire.Data/rdb/csort.frm

@@ -1,8 +1,8 @@
 Package: decisionSupport
 Type: Package
 Title: Quantitative Support of Decision Making under Uncertainty
-Version: 1.103.6
-Date: 2017-11-27
+Version: 1.103.7
+Date: 2018-05-15
 Authors@R: c(
     person("Eike", "Luedeling",  email = "eike@eikeluedeling.com",  role = c("cre", "aut"), comment="ICRAF"),
     person("Lutz", "Goehring", email = "lutz.goehring@gmx.de", role = "aut", comment="ICRAF and Lutz Goehring Consulting"),
@@ -41,10 +41,10 @@ Collate: 'chance_event.R' 'paramtnormci_fit.R' 'paramtnormci_numeric.R'
         'sample_simple_CPT.R' 'temp_situations.R' 'vv.R'
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-11-27 21:51:18 UTC; USER
+Packaged: 2018-05-15 21:52:13 UTC; USER
 Author: Eike Luedeling [cre, aut] (ICRAF),
   Lutz Goehring [aut] (ICRAF and Lutz Goehring Consulting),
   World Agroforesrtry Centre (ICRAF) [cph]
 Maintainer: Eike Luedeling <eike@eikeluedeling.com>
 Repository: CRAN
-Date/Publication: 2017-11-28 00:10:36 UTC
+Date/Publication: 2018-05-15 22:33:26 UTC
