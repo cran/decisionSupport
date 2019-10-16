@@ -7,59 +7,293 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="author" content="Eike Luedeling and Cory Whitney, University of Bonn, Germany" />
 
-<meta name="date" content="2018-10-15" />
+<meta name="date" content="2019-10-16" />
 
 <title>Controlled burns in conifer forests</title>
 
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -69,8 +303,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">Controlled burns in conifer forests</h1>
-<h4 class="author"><em>Eike Luedeling and Cory Whitney, University of Bonn, Germany</em></h4>
-<h4 class="date"><em>2018-10-15</em></h4>
+<h4 class="author">Eike Luedeling and Cory Whitney, University of Bonn, Germany</h4>
+<h4 class="date">2019-10-16</h4>
 
 
 
@@ -102,9 +336,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>posnorm</code> – a normal distribution truncated at 0 (only positive values allowed)</li>
 </ol>
 <p>Here’s the input table for the wildfire example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setwd</span>(<span class="kw">getwd</span>()) <span class="co"># this should be replaced by the folder where the wildfire_input_table.csv</span>
-<span class="co">#file it stored</span>
-<span class="kw">format</span>(<span class="kw">read.csv</span>(<span class="st">&quot;wildfire_input_table.csv&quot;</span>)[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>],<span class="dt">scientific=</span><span class="ot">FALSE</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">setwd</span>(<span class="kw">getwd</span>()) <span class="co"># this should be replaced by the folder where the wildfire_input_table.csv</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">#file it stored</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">format</span>(<span class="kw">read.csv</span>(<span class="st">&quot;wildfire_input_table.csv&quot;</span>)[,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>],<span class="dt">scientific=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>##                          variable  lower median    upper distribution
 ## 1                         n_years   20.0     NA    20.00        const
 ## 2                       area_size    1.0     NA     1.00        const
@@ -131,16 +365,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>Developing the model</h4>
 <p>To set up the analysis we first define a time line in the input table that contains information about whether there is a wildfire or a controlled burn in each year of our planning horizon. We specify this using the variable <code>n_years</code> (we use 20 years in this example).</p>
 <p>We define a probability <code>fire_risk</code> (which can range from 0 to 1) that a wildfire will break out in a given year, and use the <code>chance_event()</code> function to simulate a time series of wildfire occurrence:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Fire &lt;-<span class="st"> </span><span class="kw">chance_event</span>(fire_risk, <span class="dt">value_if =</span> <span class="dv">1</span>, <span class="dt">n =</span> n_years)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">Fire &lt;-<span class="st"> </span><span class="kw">chance_event</span>(fire_risk, <span class="dt">value_if =</span> <span class="dv">1</span>, <span class="dt">n =</span> n_years)</a></code></pre></div>
 <p>This line of R code produces a series of <code>n_years</code> (here: 20) numbers (called a vector in R), which have a <code>fire_risk</code> chance of being 1 (specified by the value_if argument) and are 0 otherwise. The 1s indicate years that feature a wildfire, 0s mark years without a fire.</p>
 <p>We also simulate whether controlled burns occur in a given year. If we assume that fire managers follow a strict schedule, this can be computed as</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Controlled &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="dv">1</span><span class="op">:</span>n_years <span class="op">%%</span><span class="st"> </span>controlled_burning_frequency<span class="op">==</span><span class="dv">0</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">Controlled &lt;-<span class="st"> </span><span class="kw">as.numeric</span>(<span class="dv">1</span><span class="op">:</span>n_years <span class="op">%%</span><span class="st"> </span>controlled_burning_frequency<span class="op">==</span><span class="dv">0</span>)</a></code></pre></div>
 <p>In the above code <code>controlled_burning_frequency</code> is from the input table, which is simply the number of years between two controlled burns (should be an integer). The symbol %% calls a modulo operation, which returns the remainder after dividing each of the year numbers (for <code>1:n_years</code>) by <code>controlled_burning_frequency</code>. If the year number is a multiple of the <code>controlled_burning_frequency</code> the code returns a <code>TRUE</code> evaluation. If the year is not a multiple, it returns a <code>FALSE</code>. These values are then converted into 0s and 1s by using the <code>as.numeric()</code> function.</p>
 <p>The code below combines these vectors into a data.frame called <code>sim.fire</code> that contains all information on our fire scenario.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sim.fire &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year=</span><span class="dv">1</span><span class="op">:</span>n_years, Fire, Controlled)
-sim.fire</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">sim.fire &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year=</span><span class="dv">1</span><span class="op">:</span>n_years, Fire, Controlled)</a>
+<a class="sourceLine" id="cb5-2" title="2">sim.fire</a></code></pre></div>
 <pre><code>##    Year Fire Controlled
-## 1     1    0          0
+## 1     1    1          0
 ## 2     2    0          1
 ## 3     3    0          0
 ## 4     4    0          1
@@ -162,172 +396,175 @@ sim.fire</code></pre></div>
 ## 20   20    0          1</code></pre>
 <p>We want to distinguish between mild and severe fires, because these differ strongly in the impact on the ecosystem and in the costs incurred in fighting the fire. To determine whether a fire is mild or severe, we simulate the amount of combustible biomass that has accumulated in a given year. When this biomass exceeds the threshold <code>severity_threshold</code> (from the input table) at the time of a wildfire outbreak, we classify the fire as severe, otherwise as mild.</p>
 <p>To do this, we first have to simulate the amount of combustible biomass. We start by setting up two data.frames to store the results of this simulation, one for the no-burn scenario (<code>no.control</code>), and one for the scenario with controlled burns (<code>control</code>):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">no.control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), 
-                         <span class="dt">Biomass =</span> <span class="kw">double</span>(), 
-                         <span class="dt">FireType =</span> <span class="kw">character</span>(),
-                         <span class="dt">stringsAsFactors =</span> F)
-
-control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), 
-                      <span class="dt">Biomass =</span> <span class="kw">double</span>(), 
-                      <span class="dt">FireType =</span> <span class="kw">character</span>(),
-                      <span class="dt">stringsAsFactors =</span> F)</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">no.control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), </a>
+<a class="sourceLine" id="cb7-2" title="2">                         <span class="dt">Biomass =</span> <span class="kw">double</span>(), </a>
+<a class="sourceLine" id="cb7-3" title="3">                         <span class="dt">FireType =</span> <span class="kw">character</span>(),</a>
+<a class="sourceLine" id="cb7-4" title="4">                         <span class="dt">stringsAsFactors =</span> F)</a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6">control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), </a>
+<a class="sourceLine" id="cb7-7" title="7">                      <span class="dt">Biomass =</span> <span class="kw">double</span>(), </a>
+<a class="sourceLine" id="cb7-8" title="8">                      <span class="dt">FireType =</span> <span class="kw">character</span>(),</a>
+<a class="sourceLine" id="cb7-9" title="9">                      <span class="dt">stringsAsFactors =</span> F)</a></code></pre></div>
 <p>Each of the two data.frames has three columns for the simulation year (<code>Year</code>), the combustible biomass (<code>Biomass</code>) and the fire type (<code>FireType</code>). For year 1, we set the biomass for both scenarios to an initial level described by <code>initial_biomass</code> from the input table. We then start a loop that cycles through all years (with y used as a counter to describe which year we’re in) and computes that year’s biomass, according to the fire scenario that is encountered in each year. We distinguish between four different fire settings (using the <code>switch function</code>): 1) When neither fire nor controlled burns occur, biomass increases by a certain percentage (<code>bio_accu_rate_no_contr_burn</code>). 2) When a controlled burn occurs, biomass is reduced to <code>biomass_after_burning</code>, but then increases by a certain percentage (<code>bio_accu_rate_contr_burn</code>). 3) When a mild fire occurs, the biomass is reduced to <code>biomass_after_mild_fire</code>. 4) When a severe fire occurs, the biomass declines to <code>biomass_after_severe_fire</code>.</p>
 <p>All variables in steps 1-4 are from the input table.</p>
 <p>We can then determine the fire severity by comparing the combustible biomass level with the fire severity. For this, we use several <code>ifelse</code> calls that first check if there was a controlled burn, then (if not) whether there was a fire, and finally whether biomass exceeded the threshold for a severe fire. Depending on the outcome of these tests, the FireType is set to “Controlled”, “None”, “Severe” or “Mild”.</p>
 <p>This is simulated with the following code for the <code>control</code> scenario:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co">#start of year loop</span>
-  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_years) {
-    
-    <span class="co"># record year</span>
-    control[y, <span class="st">&quot;Year&quot;</span>] &lt;-<span class="st"> </span>y
-    
-    <span class="co"># calculate biomass</span>
-    <span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>initial_biomass} <span class="cf">else</span> {
-      
-      <span class="cf">switch</span>(<span class="dt">EXPR =</span> control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;FireType&quot;</span>], 
-             <span class="st">&quot;Controlled&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_burning <span class="op">*</span><span class="st"> </span>
-<span class="st">               </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_contr_burn<span class="op">/</span><span class="dv">100</span>)},
-             <span class="st">&quot;None&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Biomass&quot;</span>] <span class="op">*</span><span class="st"> </span>
-<span class="st">               </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_no_contr_burn<span class="op">/</span><span class="dv">100</span>)},
-             <span class="st">&quot;Severe&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_severe_fire},
-             <span class="st">&quot;Mild&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_mild_fire})}  
-    
-    <span class="co"># determine wild fire type</span>
-    <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Controlled&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, 
-           <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;Controlled&quot;</span>,
-           <span class="dt">no =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,
-                <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;None&quot;</span>,
-                <span class="dt">no =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;&amp;</span><span class="st"> </span>control[y,<span class="st">&quot;Biomass&quot;</span>] <span class="op">&gt;</span><span class="st"> </span>severity_threshold,
-                     <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Severe&quot;</span>,
-                     <span class="dt">no =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Mild&quot;</span>)))
-     
-    
-  } <span class="co">#end of year loop controlled burning scenario</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">  <span class="co">#start of year loop</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_years) {</a>
+<a class="sourceLine" id="cb8-3" title="3">    </a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="co"># record year</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    control[y, <span class="st">&quot;Year&quot;</span>] &lt;-<span class="st"> </span>y</a>
+<a class="sourceLine" id="cb8-6" title="6">    </a>
+<a class="sourceLine" id="cb8-7" title="7">    <span class="co"># calculate biomass</span></a>
+<a class="sourceLine" id="cb8-8" title="8">    <span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>initial_biomass} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb8-9" title="9">      </a>
+<a class="sourceLine" id="cb8-10" title="10">      <span class="cf">switch</span>(<span class="dt">EXPR =</span> control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;FireType&quot;</span>], </a>
+<a class="sourceLine" id="cb8-11" title="11">             <span class="st">&quot;Controlled&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_burning <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="st">               </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_contr_burn<span class="op">/</span><span class="dv">100</span>)},</a>
+<a class="sourceLine" id="cb8-13" title="13">             <span class="st">&quot;None&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Biomass&quot;</span>] <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="st">               </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_no_contr_burn<span class="op">/</span><span class="dv">100</span>)},</a>
+<a class="sourceLine" id="cb8-15" title="15">             <span class="st">&quot;Severe&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_severe_fire},</a>
+<a class="sourceLine" id="cb8-16" title="16">             <span class="st">&quot;Mild&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_mild_fire})}  </a>
+<a class="sourceLine" id="cb8-17" title="17">    </a>
+<a class="sourceLine" id="cb8-18" title="18">    <span class="co"># determine wild fire type</span></a>
+<a class="sourceLine" id="cb8-19" title="19">    <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Controlled&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb8-20" title="20">           <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;Controlled&quot;</span>,</a>
+<a class="sourceLine" id="cb8-21" title="21">           <span class="dt">no =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb8-22" title="22">                <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;None&quot;</span>,</a>
+<a class="sourceLine" id="cb8-23" title="23">                <span class="dt">no =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;&amp;</span><span class="st"> </span>control[y,<span class="st">&quot;Biomass&quot;</span>] <span class="op">&gt;</span><span class="st"> </span>severity_threshold,</a>
+<a class="sourceLine" id="cb8-24" title="24">                     <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Severe&quot;</span>,</a>
+<a class="sourceLine" id="cb8-25" title="25">                     <span class="dt">no =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Mild&quot;</span>)))</a>
+<a class="sourceLine" id="cb8-26" title="26">     </a>
+<a class="sourceLine" id="cb8-27" title="27">    </a>
+<a class="sourceLine" id="cb8-28" title="28">  } <span class="co">#end of year loop controlled burning scenario</span></a></code></pre></div>
 <p>For the <code>no.control</code> scenario, the code looks similar, except that there are no consequences of a Controlled fire, because such fires don’t occur here:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co">#start of year loop</span>
-  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_years) {
-    
-    <span class="co"># record year</span>
-    no.control[y, <span class="st">&quot;Year&quot;</span>] &lt;-<span class="st"> </span>y
-    
-    <span class="co"># calculate biomass</span>
-    <span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>initial_biomass} <span class="cf">else</span> {
-      
-      <span class="cf">switch</span>(<span class="dt">EXPR =</span> no.control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;FireType&quot;</span>], 
-             <span class="st">&quot;None&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>no.control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Biomass&quot;</span>] <span class="op">*</span><span class="st"> </span>
-<span class="st">                     </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_no_contr_burn<span class="op">/</span><span class="dv">100</span>)},
-             <span class="st">&quot;Severe&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_severe_fire},
-             <span class="st">&quot;Mild&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_mild_fire})
-      }  
-      
-    <span class="co"># determine fire type</span>
-    <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,
-           <span class="dt">yes =</span> no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;None&quot;</span>,
-           <span class="dt">no =</span> <span class="kw">ifelse</span>(
-             <span class="dt">test =</span> no.control[y,<span class="st">&quot;Biomass&quot;</span>] <span class="op">&gt;</span><span class="st"> </span>severity_threshold,
-             <span class="dt">yes =</span> no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Severe&quot;</span>,
-             <span class="dt">no =</span>  no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Mild&quot;</span>))
-
-  } <span class="co">#end of year loop 'no burn' scenario</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">  <span class="co">#start of year loop</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_years) {</a>
+<a class="sourceLine" id="cb9-3" title="3">    </a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="co"># record year</span></a>
+<a class="sourceLine" id="cb9-5" title="5">    no.control[y, <span class="st">&quot;Year&quot;</span>] &lt;-<span class="st"> </span>y</a>
+<a class="sourceLine" id="cb9-6" title="6">    </a>
+<a class="sourceLine" id="cb9-7" title="7">    <span class="co"># calculate biomass</span></a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>initial_biomass} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb9-9" title="9">      </a>
+<a class="sourceLine" id="cb9-10" title="10">      <span class="cf">switch</span>(<span class="dt">EXPR =</span> no.control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;FireType&quot;</span>], </a>
+<a class="sourceLine" id="cb9-11" title="11">             <span class="st">&quot;None&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>no.control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Biomass&quot;</span>] <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="st">                     </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_no_contr_burn<span class="op">/</span><span class="dv">100</span>)},</a>
+<a class="sourceLine" id="cb9-13" title="13">             <span class="st">&quot;Severe&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_severe_fire},</a>
+<a class="sourceLine" id="cb9-14" title="14">             <span class="st">&quot;Mild&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_mild_fire})</a>
+<a class="sourceLine" id="cb9-15" title="15">      }  </a>
+<a class="sourceLine" id="cb9-16" title="16">      </a>
+<a class="sourceLine" id="cb9-17" title="17">    <span class="co"># determine fire type</span></a>
+<a class="sourceLine" id="cb9-18" title="18">    <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb9-19" title="19">           <span class="dt">yes =</span> no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;None&quot;</span>,</a>
+<a class="sourceLine" id="cb9-20" title="20">           <span class="dt">no =</span> <span class="kw">ifelse</span>(</a>
+<a class="sourceLine" id="cb9-21" title="21">             <span class="dt">test =</span> no.control[y,<span class="st">&quot;Biomass&quot;</span>] <span class="op">&gt;</span><span class="st"> </span>severity_threshold,</a>
+<a class="sourceLine" id="cb9-22" title="22">             <span class="dt">yes =</span> no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Severe&quot;</span>,</a>
+<a class="sourceLine" id="cb9-23" title="23">             <span class="dt">no =</span>  no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Mild&quot;</span>))</a>
+<a class="sourceLine" id="cb9-24" title="24"></a>
+<a class="sourceLine" id="cb9-25" title="25">  } <span class="co">#end of year loop &#39;no burn&#39; scenario</span></a></code></pre></div>
 <p>At this point, the fire time series is complete, with all information stored in the data.frames <code>control</code> and <code>no.control</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">control</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">control</a></code></pre></div>
 <pre><code>##    Year   Biomass   FireType
-## 1     1 113.66136       None
-## 2     2 163.32039 Controlled
-## 3     3  17.46804       None
-## 4     4  25.09989 Controlled
-## 5     5  17.46804       None
-## 6     6  25.09989 Controlled
-## 7     7  17.46804       None
-## 8     8  25.09989 Controlled
-## 9     9  17.46804       None
-## 10   10  25.09989 Controlled
-## 11   11  17.46804       None
-## 12   12  25.09989 Controlled
-## 13   13  17.46804       None
-## 14   14  25.09989 Controlled
-## 15   15  17.46804       None
-## 16   16  25.09989 Controlled
-## 17   17  17.46804       None
-## 18   18  25.09989 Controlled
-## 19   19  17.46804       None
-## 20   20  25.09989 Controlled</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">no.control</code></pre></div>
-<pre><code>##    Year     Biomass FireType
-## 1     1    113.6614     None
-## 2     2    163.3204     None
-## 3     3    234.6756     None
-## 4     4    337.2062     None
-## 5     5    484.5327     None
-## 6     6    696.2267     None
-## 7     7   1000.4105     None
-## 8     8   1437.4933     None
-## 9     9   2065.5390     None
-## 10   10   2967.9800     None
-## 11   11   4264.7006     None
-## 12   12   6127.9627     None
-## 13   13   8805.2904     None
-## 14   14  12652.3517     None
-## 15   15  18180.2071     None
-## 16   16  26123.2013     None
-## 17   17  37536.5166     None
-## 18   18  53936.3481     None
-## 19   19  77501.3217     None
-## 20   20 111361.9122     None</code></pre>
-<p>In the above simulation, the <code>controlled_burning_frequency</code> was 2 and the severity_threshold 103.</p>
+## 1     1 74.822529     Severe
+## 2     2  4.524906 Controlled
+## 3     3 13.993545       None
+## 4     4 24.707743 Controlled
+## 5     5 13.993545       None
+## 6     6 24.707743 Controlled
+## 7     7 13.993545       None
+## 8     8 24.707743 Controlled
+## 9     9 13.993545       None
+## 10   10 24.707743 Controlled
+## 11   11 13.993545       None
+## 12   12 24.707743 Controlled
+## 13   13 13.993545       None
+## 14   14 24.707743 Controlled
+## 15   15 13.993545       None
+## 16   16 24.707743 Controlled
+## 17   17 13.993545       None
+## 18   18 24.707743 Controlled
+## 19   19 13.993545       None
+## 20   20 24.707743 Controlled</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">no.control</a></code></pre></div>
+<pre><code>##    Year      Biomass FireType
+## 1     1 7.482253e+01   Severe
+## 2     2 4.524906e+00     None
+## 3     3 7.989413e+00     None
+## 4     4 1.410653e+01     None
+## 5     5 2.490724e+01     None
+## 6     6 4.397753e+01     None
+## 7     7 7.764906e+01     None
+## 8     8 1.371013e+02     None
+## 9     9 2.420733e+02     None
+## 10   10 4.274174e+02     None
+## 11   11 7.546707e+02     None
+## 12   12 1.332486e+03     None
+## 13   13 2.352709e+03     None
+## 14   14 4.154067e+03     None
+## 15   15 7.334639e+03     None
+## 16   16 1.295043e+04     None
+## 17   17 2.286596e+04     None
+## 18   18 4.037335e+04     None
+## 19   19 7.128531e+04     None
+## 20   20 1.258651e+05     None</code></pre>
+<p>In the above simulation, the <code>controlled_burning_frequency</code> was 2 and the severity_threshold 57.</p>
 <p>With this information we can move on to computing the cost implications for each scenario. We only consider three types of costs: the cost of controlled burning (<code>cost_of_controlled_burning</code>), the cost of fighting fires (<code>fire_fighting_cost</code>), and the value of the environmental damage caused by a fire (<code>env_imp</code>). We distinguish between severe and mild fires, so we get separate variables for the cost of firefighting (<code>fire_fighting_cost_mild_fire</code> and <code>fire_fighting_cost_severe_fire</code>) and the environmental impacts (<code>env_imp_mild_fire</code> and <code>env_imp_severe_fire</code>). For each year and each scenario, the applicable costs are selected (depending on the fire type) and added up to produce the total cost for each option. The result is then multiplied by the area under consideration (<code>area_size</code>) to produce the total cost.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate costs of no.control treatment -------------------------</span>
-  
-  ff.cost.no.control &lt;-
-<span class="st">     </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_severe_fire <span class="op">+</span>
-<span class="st">     </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_mild_fire
-  
-  env.cost.no.control &lt;-
-<span class="st">     </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_severe_fire <span class="op">+</span><span class="st"> </span>
-<span class="st">     </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_mild_fire
-  
-  bottomline_no_burn &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span>( ff.cost.no.control <span class="op">+</span><span class="st"> </span>env.cost.no.control) <span class="op">*</span><span class="st"> </span>area_size
-  
-<span class="co"># calculate costs of control treatment</span>
-  
-  treatment.cost.control &lt;-
-<span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Controlled&quot;</span>) <span class="op">*</span><span class="st"> </span>cost_of_controlled_burning
-  
-  ff.cost.control &lt;-
-<span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_severe_fire <span class="op">+</span>
-<span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_mild_fire
-  
-  env.cost.control &lt;-
-<span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_severe_fire <span class="op">+</span><span class="st"> </span>
-<span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_mild_fire
-
-  bottomline_contr_burn &lt;-
-<span class="st">      </span><span class="op">-</span><span class="st"> </span>(treatment.cost.control <span class="op">+</span><span class="st"> </span>ff.cost.control <span class="op">+</span><span class="st"> </span>env.cost.control) <span class="op">*</span><span class="st"> </span>area_size</code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># calculate costs of no.control treatment -------------------------</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  </a>
+<a class="sourceLine" id="cb14-3" title="3">  ff.cost.no.control &lt;-</a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="st">     </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_severe_fire <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="st">     </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_mild_fire</a>
+<a class="sourceLine" id="cb14-6" title="6">  </a>
+<a class="sourceLine" id="cb14-7" title="7">  env.cost.no.control &lt;-</a>
+<a class="sourceLine" id="cb14-8" title="8"><span class="st">     </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_severe_fire <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-9" title="9"><span class="st">     </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_mild_fire</a>
+<a class="sourceLine" id="cb14-10" title="10">  </a>
+<a class="sourceLine" id="cb14-11" title="11">  bottomline_no_burn &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span>( ff.cost.no.control <span class="op">+</span><span class="st"> </span>env.cost.no.control) <span class="op">*</span><span class="st"> </span>area_size</a>
+<a class="sourceLine" id="cb14-12" title="12">  </a>
+<a class="sourceLine" id="cb14-13" title="13"><span class="co"># calculate costs of control treatment</span></a>
+<a class="sourceLine" id="cb14-14" title="14">  </a>
+<a class="sourceLine" id="cb14-15" title="15">  treatment.cost.control &lt;-</a>
+<a class="sourceLine" id="cb14-16" title="16"><span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Controlled&quot;</span>) <span class="op">*</span><span class="st"> </span>cost_of_controlled_burning</a>
+<a class="sourceLine" id="cb14-17" title="17">  </a>
+<a class="sourceLine" id="cb14-18" title="18">  ff.cost.control &lt;-</a>
+<a class="sourceLine" id="cb14-19" title="19"><span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_severe_fire <span class="op">+</span></a>
+<a class="sourceLine" id="cb14-20" title="20"><span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_mild_fire</a>
+<a class="sourceLine" id="cb14-21" title="21">  </a>
+<a class="sourceLine" id="cb14-22" title="22">  env.cost.control &lt;-</a>
+<a class="sourceLine" id="cb14-23" title="23"><span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_severe_fire <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-24" title="24"><span class="st">     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_mild_fire</a>
+<a class="sourceLine" id="cb14-25" title="25"></a>
+<a class="sourceLine" id="cb14-26" title="26">  bottomline_contr_burn &lt;-</a>
+<a class="sourceLine" id="cb14-27" title="27"><span class="st">      </span><span class="op">-</span><span class="st"> </span>(treatment.cost.control <span class="op">+</span><span class="st"> </span>ff.cost.control <span class="op">+</span><span class="st"> </span>env.cost.control) <span class="op">*</span><span class="st"> </span>area_size</a></code></pre></div>
 <p>Now we have two vectors that contain the annual costs of the two scenarios (<code>bottomline_contr_burn</code> and <code>bottomline_no_burn</code>). The net benefits of the controlled burning strategy (<code>benefit_of_controlled_burning</code>) are then simply calculated as the difference between control and no control:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">benefit_of_controlled_burning &lt;-<span class="st"> </span>bottomline_contr_burn <span class="op">-</span><span class="st"> </span>bottomline_no_burn</code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">benefit_of_controlled_burning &lt;-<span class="st"> </span>bottomline_contr_burn <span class="op">-</span><span class="st"> </span>bottomline_no_burn</a></code></pre></div>
 <p>This produces, for example:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bottomline_no_burn</code></pre></div>
-<pre><code>##  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bottomline_contr_burn</code></pre></div>
-<pre><code>##  [1]    0.0000 -794.6479    0.0000 -794.6479    0.0000 -794.6479    0.0000
-##  [8] -794.6479    0.0000 -794.6479    0.0000 -794.6479    0.0000 -794.6479
-## [15]    0.0000 -794.6479    0.0000 -794.6479    0.0000 -794.6479</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">benefit_of_controlled_burning</code></pre></div>
-<pre><code>##  [1]    0.0000 -794.6479    0.0000 -794.6479    0.0000 -794.6479    0.0000
-##  [8] -794.6479    0.0000 -794.6479    0.0000 -794.6479    0.0000 -794.6479
-## [15]    0.0000 -794.6479    0.0000 -794.6479    0.0000 -794.6479</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">bottomline_no_burn</a></code></pre></div>
+<pre><code>##  [1] -12073.3      0.0      0.0      0.0      0.0      0.0      0.0
+##  [8]      0.0      0.0      0.0      0.0      0.0      0.0      0.0
+## [15]      0.0      0.0      0.0      0.0      0.0      0.0</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">bottomline_contr_burn</a></code></pre></div>
+<pre><code>##  [1] -12073.2952   -831.1231      0.0000   -831.1231      0.0000
+##  [6]   -831.1231      0.0000   -831.1231      0.0000   -831.1231
+## [11]      0.0000   -831.1231      0.0000   -831.1231      0.0000
+## [16]   -831.1231      0.0000   -831.1231      0.0000   -831.1231</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">benefit_of_controlled_burning</a></code></pre></div>
+<pre><code>##  [1]    0.0000 -831.1231    0.0000 -831.1231    0.0000 -831.1231    0.0000
+##  [8] -831.1231    0.0000 -831.1231    0.0000 -831.1231    0.0000 -831.1231
+## [15]    0.0000 -831.1231    0.0000 -831.1231    0.0000 -831.1231</code></pre>
 <p>The last step in this decision model is to compute the total benefits by summing up the yearly values. A slight complication in this is that very few people are indifferent about the time at which they are faced with costs or benefits. Most people would prefer to have income now over having that same income in the future, and they feel the opposite way about expenses (most prefer expenses later). This characteristic is known as the time preference. We also say that people ‘discount’ future costs and benefits. This is considered when calculating the so-called Net Present Value (NPV), which discounts future costs or benefits by an investor-specific discount rate. Usually, the further in the future these costs and benefits occur, the lower their perceived value. <code>decisionSupport</code> provides a discounting function called <code>discount()</code>, which implements the standard equation used by economists to compute the NPV. For example, a discount rate of 4% applied to a regular income stream of 100 dollars per year over 10 years would produce:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">discount</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">100</span>,<span class="dv">10</span>)),<span class="dt">discount_rate =</span> <span class="dv">4</span>)</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">discount</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">100</span>,<span class="dv">10</span>)),<span class="dt">discount_rate =</span> <span class="dv">4</span>)</a></code></pre></div>
 <pre><code>##  [1] 100.00000  96.15385  92.45562  88.89964  85.48042  82.19271  79.03145
 ##  [8]  75.99178  73.06902  70.25867</code></pre>
 <p>If we add the additional argument calculate_NPV=TRUE, to our code, the function automatically sums up these values to produce the Net Present Value:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">discount</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">100</span>,<span class="dv">10</span>)),<span class="dt">discount_rate=</span><span class="dv">4</span>,<span class="dt">calculate_NPV =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">discount</span>(<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">100</span>,<span class="dv">10</span>)),<span class="dt">discount_rate=</span><span class="dv">4</span>,<span class="dt">calculate_NPV =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 843.5332</code></pre>
 <p>We see that the perceived net benefit, the Net Present Value, is not 1000 dollars, as we would get by just adding up the yearly values, but only 844 dollars.</p>
 <p>Applied to our example, and using the <code>discount_rate variable</code> (from the input table), this produces:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NPV_controlled_burning &lt;-<span class="st"> </span><span class="kw">discount</span>(benefit_of_controlled_burning,
-                                     <span class="dt">discount_rate =</span> discount_rate,
-                                     <span class="dt">calculate_NPV =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">NPV_controlled_burning &lt;-<span class="st"> </span><span class="kw">discount</span>(benefit_of_controlled_burning,</a>
+<a class="sourceLine" id="cb26-2" title="2">                                     <span class="dt">discount_rate =</span> discount_rate,</a>
+<a class="sourceLine" id="cb26-3" title="3">                                     <span class="dt">calculate_NPV =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>With this metric, we can compare the two forest management options.</p>
 <p>Here’s an illustration of the basic steps of the simulation:</p>
 <div class="figure">
@@ -358,118 +595,118 @@ make_variables(estimate_read_csv(&quot;wildfire_input_table.csv&quot;))</code></
 return(list([OUTPUTS]))
 }</code></pre>
 <p>Below is an R function (decision model) for the wildfire decision, which calculates the Net Present Value (NPV) for the decision to manage forests with controlled burns. The decision model function name in this example is <code>burn.sim</code>. This function takes has no arguments, but when run through the <code>decisionSupport()</code> function, it receives values for all the variables specified in the input file. The function will return a single output value, which is a list containing the NPV. You’ll see that this function is largely compiled of the code we developed above:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">burn.sim &lt;-<span class="st"> </span><span class="cf">function</span>(){
-
-  <span class="co"># set up dataframe to store simulation fire conditions</span>
-  Fire &lt;-<span class="st"> </span><span class="kw">chance_event</span>(fire_risk, <span class="dt">value_if =</span> <span class="dv">1</span>,<span class="dt">n =</span> n_years) 
-  Controlled &lt;-<span class="st">  </span><span class="kw">as.numeric</span>(<span class="dv">1</span><span class="op">:</span>n_years <span class="op">%%</span><span class="st"> </span>controlled_burning_frequency<span class="op">==</span><span class="dv">0</span>)
-  sim.fire &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dv">1</span><span class="op">:</span>n_years, Fire, Controlled)
-  
-<span class="co"># --- 'no controlled burn' scenario ----------------------------</span>
-  
-  <span class="co"># set up dataframe to store results</span>
-  no.control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), 
-                           <span class="dt">Biomass =</span> <span class="kw">double</span>(), 
-                           <span class="dt">FireType =</span> <span class="kw">character</span>(),
-                           <span class="dt">stringsAsFactors =</span> F)
-  <span class="co">#start of year loop</span>
-  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_years) {
-    
-    <span class="co"># record year</span>
-    no.control[y, <span class="st">&quot;Year&quot;</span>] &lt;-<span class="st"> </span>y
-    
-    <span class="co"># calculate biomass</span>
-    <span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>initial_biomass} <span class="cf">else</span> {
-      
-      <span class="cf">switch</span>(<span class="dt">EXPR =</span> no.control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;FireType&quot;</span>], 
-             <span class="st">&quot;None&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>no.control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Biomass&quot;</span>] <span class="op">*</span><span class="st"> </span>
-<span class="st">                     </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_no_contr_burn<span class="op">/</span><span class="dv">100</span>)},
-             <span class="st">&quot;Severe&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_severe_fire},
-             <span class="st">&quot;Mild&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_mild_fire})
-      }  
-      
-    <span class="co"># determine fire type</span>
-    <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,
-           <span class="dt">yes =</span> no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;None&quot;</span>,
-           <span class="dt">no =</span> <span class="kw">ifelse</span>(
-             <span class="dt">test =</span> no.control[y,<span class="st">&quot;Biomass&quot;</span>] <span class="op">&gt;</span><span class="st"> </span>severity_threshold,
-             <span class="dt">yes =</span> no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Severe&quot;</span>,
-             <span class="dt">no =</span>  no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Mild&quot;</span>))
-
-  } <span class="co">#end of year loop 'no burn' scenario</span>
-    
-<span class="co"># ---  controlled burning scenario ---------------------------</span>
-  
-  <span class="co"># set up dataframe to store results</span>
-  control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), 
-             <span class="dt">Biomass =</span> <span class="kw">double</span>(), 
-             <span class="dt">FireType =</span> <span class="kw">character</span>(),
-             <span class="dt">stringsAsFactors =</span> F)
-  
-  <span class="co">#start of year loop</span>
-  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_years) {
-    
-    <span class="co"># record year</span>
-    control[y, <span class="st">&quot;Year&quot;</span>] &lt;-<span class="st"> </span>y
-    
-    <span class="co"># calculate biomass</span>
-    <span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>initial_biomass} <span class="cf">else</span> {
-      
-      <span class="cf">switch</span>(<span class="dt">EXPR =</span> control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;FireType&quot;</span>], 
-             <span class="st">&quot;Controlled&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_burning <span class="op">*</span><span class="st"> </span>
-<span class="st">               </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_contr_burn<span class="op">/</span><span class="dv">100</span>)},
-             <span class="st">&quot;None&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Biomass&quot;</span>] <span class="op">*</span><span class="st"> </span>
-<span class="st">               </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_no_contr_burn<span class="op">/</span><span class="dv">100</span>)},
-             <span class="st">&quot;Severe&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_severe_fire},
-             <span class="st">&quot;Mild&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_mild_fire})}  
-    
-    <span class="co"># determine wild fire type</span>
-    <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Controlled&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, 
-           <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;Controlled&quot;</span>,
-           <span class="dt">no =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,
-                <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;None&quot;</span>,
-                <span class="dt">no =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;&amp;</span><span class="st"> </span>control[y,<span class="st">&quot;Biomass&quot;</span>] <span class="op">&gt;</span><span class="st"> </span>severity_threshold,
-                     <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Severe&quot;</span>,
-                     <span class="dt">no =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Mild&quot;</span>)))
-     
-    
-  } <span class="co">#end of year loop controlled burning scenario</span>
-  
-<span class="co"># calculate costs of no.control treatment -------------------------</span>
-  
-  ff.cost.no.control &lt;-<span class="st"> </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_severe_fire <span class="op">+</span>
-<span class="st">                        </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_mild_fire
-  
-  env.cost.no.control &lt;-<span class="st"> </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_severe_fire <span class="op">+</span><span class="st"> </span>
-<span class="st">                         </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_mild_fire
-  
-  bottomline_no_burn &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span>( ff.cost.no.control <span class="op">+</span><span class="st"> </span>env.cost.no.control) <span class="op">*</span><span class="st"> </span>area_size
-  
-<span class="co"># calculate costs of control treatment</span>
-  
-  treatment.cost.control &lt;-<span class="st"> </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Controlled&quot;</span>) <span class="op">*</span><span class="st"> </span>cost_of_controlled_burning
-  
-  ff.cost.control &lt;-<span class="st"> </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_severe_fire <span class="op">+</span>
-<span class="st">                     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_mild_fire
-  
-  env.cost.control &lt;-<span class="st"> </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_severe_fire <span class="op">+</span><span class="st"> </span>
-<span class="st">                      </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_mild_fire
- 
-  bottomline_contr_burn &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span>(treatment.cost.control <span class="op">+</span><span class="st"> </span>ff.cost.control <span class="op">+</span><span class="st"> </span>env.cost.control) <span class="op">*</span><span class="st"> </span>area_size
-  
-<span class="co"># return key results</span>
-  
-  <span class="co"># calculate the benefit of controlled burning over no controlled burning</span>
-  benefit_of_controlled_burning &lt;-<span class="st"> </span>(bottomline_contr_burn <span class="op">-</span><span class="st"> </span>bottomline_no_burn)
-  
-  <span class="co">#calculate the Net Present Value (NPV) for forest management with controlled burning</span>
-  NPV_controlled_burning &lt;-<span class="st"> </span><span class="kw">discount</span>(benefit_of_controlled_burning,
-                                     <span class="dt">discount_rate =</span> discount_rate,
-                                     <span class="dt">calculate_NPV =</span> <span class="ot">TRUE</span>)
-  
-  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">NPV_controlled_burning =</span> NPV_controlled_burning))
-
-} <span class="co"># end of function</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">burn.sim &lt;-<span class="st"> </span><span class="cf">function</span>(){</a>
+<a class="sourceLine" id="cb31-2" title="2"></a>
+<a class="sourceLine" id="cb31-3" title="3">  <span class="co"># set up dataframe to store simulation fire conditions</span></a>
+<a class="sourceLine" id="cb31-4" title="4">  Fire &lt;-<span class="st"> </span><span class="kw">chance_event</span>(fire_risk, <span class="dt">value_if =</span> <span class="dv">1</span>,<span class="dt">n =</span> n_years) </a>
+<a class="sourceLine" id="cb31-5" title="5">  Controlled &lt;-<span class="st">  </span><span class="kw">as.numeric</span>(<span class="dv">1</span><span class="op">:</span>n_years <span class="op">%%</span><span class="st"> </span>controlled_burning_frequency<span class="op">==</span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb31-6" title="6">  sim.fire &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dv">1</span><span class="op">:</span>n_years, Fire, Controlled)</a>
+<a class="sourceLine" id="cb31-7" title="7">  </a>
+<a class="sourceLine" id="cb31-8" title="8"><span class="co"># --- &#39;no controlled burn&#39; scenario ----------------------------</span></a>
+<a class="sourceLine" id="cb31-9" title="9">  </a>
+<a class="sourceLine" id="cb31-10" title="10">  <span class="co"># set up dataframe to store results</span></a>
+<a class="sourceLine" id="cb31-11" title="11">  no.control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), </a>
+<a class="sourceLine" id="cb31-12" title="12">                           <span class="dt">Biomass =</span> <span class="kw">double</span>(), </a>
+<a class="sourceLine" id="cb31-13" title="13">                           <span class="dt">FireType =</span> <span class="kw">character</span>(),</a>
+<a class="sourceLine" id="cb31-14" title="14">                           <span class="dt">stringsAsFactors =</span> F)</a>
+<a class="sourceLine" id="cb31-15" title="15">  <span class="co">#start of year loop</span></a>
+<a class="sourceLine" id="cb31-16" title="16">  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_years) {</a>
+<a class="sourceLine" id="cb31-17" title="17">    </a>
+<a class="sourceLine" id="cb31-18" title="18">    <span class="co"># record year</span></a>
+<a class="sourceLine" id="cb31-19" title="19">    no.control[y, <span class="st">&quot;Year&quot;</span>] &lt;-<span class="st"> </span>y</a>
+<a class="sourceLine" id="cb31-20" title="20">    </a>
+<a class="sourceLine" id="cb31-21" title="21">    <span class="co"># calculate biomass</span></a>
+<a class="sourceLine" id="cb31-22" title="22">    <span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>initial_biomass} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb31-23" title="23">      </a>
+<a class="sourceLine" id="cb31-24" title="24">      <span class="cf">switch</span>(<span class="dt">EXPR =</span> no.control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;FireType&quot;</span>], </a>
+<a class="sourceLine" id="cb31-25" title="25">             <span class="st">&quot;None&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>no.control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Biomass&quot;</span>] <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-26" title="26"><span class="st">                     </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_no_contr_burn<span class="op">/</span><span class="dv">100</span>)},</a>
+<a class="sourceLine" id="cb31-27" title="27">             <span class="st">&quot;Severe&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_severe_fire},</a>
+<a class="sourceLine" id="cb31-28" title="28">             <span class="st">&quot;Mild&quot;</span> =<span class="st"> </span>{no.control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_mild_fire})</a>
+<a class="sourceLine" id="cb31-29" title="29">      }  </a>
+<a class="sourceLine" id="cb31-30" title="30">      </a>
+<a class="sourceLine" id="cb31-31" title="31">    <span class="co"># determine fire type</span></a>
+<a class="sourceLine" id="cb31-32" title="32">    <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb31-33" title="33">           <span class="dt">yes =</span> no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;None&quot;</span>,</a>
+<a class="sourceLine" id="cb31-34" title="34">           <span class="dt">no =</span> <span class="kw">ifelse</span>(</a>
+<a class="sourceLine" id="cb31-35" title="35">             <span class="dt">test =</span> no.control[y,<span class="st">&quot;Biomass&quot;</span>] <span class="op">&gt;</span><span class="st"> </span>severity_threshold,</a>
+<a class="sourceLine" id="cb31-36" title="36">             <span class="dt">yes =</span> no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Severe&quot;</span>,</a>
+<a class="sourceLine" id="cb31-37" title="37">             <span class="dt">no =</span>  no.control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Mild&quot;</span>))</a>
+<a class="sourceLine" id="cb31-38" title="38"></a>
+<a class="sourceLine" id="cb31-39" title="39">  } <span class="co">#end of year loop &#39;no burn&#39; scenario</span></a>
+<a class="sourceLine" id="cb31-40" title="40">    </a>
+<a class="sourceLine" id="cb31-41" title="41"><span class="co"># ---  controlled burning scenario ---------------------------</span></a>
+<a class="sourceLine" id="cb31-42" title="42">  </a>
+<a class="sourceLine" id="cb31-43" title="43">  <span class="co"># set up dataframe to store results</span></a>
+<a class="sourceLine" id="cb31-44" title="44">  control &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Year =</span> <span class="kw">integer</span>(), </a>
+<a class="sourceLine" id="cb31-45" title="45">             <span class="dt">Biomass =</span> <span class="kw">double</span>(), </a>
+<a class="sourceLine" id="cb31-46" title="46">             <span class="dt">FireType =</span> <span class="kw">character</span>(),</a>
+<a class="sourceLine" id="cb31-47" title="47">             <span class="dt">stringsAsFactors =</span> F)</a>
+<a class="sourceLine" id="cb31-48" title="48">  </a>
+<a class="sourceLine" id="cb31-49" title="49">  <span class="co">#start of year loop</span></a>
+<a class="sourceLine" id="cb31-50" title="50">  <span class="cf">for</span> (y <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span>n_years) {</a>
+<a class="sourceLine" id="cb31-51" title="51">    </a>
+<a class="sourceLine" id="cb31-52" title="52">    <span class="co"># record year</span></a>
+<a class="sourceLine" id="cb31-53" title="53">    control[y, <span class="st">&quot;Year&quot;</span>] &lt;-<span class="st"> </span>y</a>
+<a class="sourceLine" id="cb31-54" title="54">    </a>
+<a class="sourceLine" id="cb31-55" title="55">    <span class="co"># calculate biomass</span></a>
+<a class="sourceLine" id="cb31-56" title="56">    <span class="cf">if</span> (y <span class="op">==</span><span class="st"> </span><span class="dv">1</span>) {control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>initial_biomass} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb31-57" title="57">      </a>
+<a class="sourceLine" id="cb31-58" title="58">      <span class="cf">switch</span>(<span class="dt">EXPR =</span> control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;FireType&quot;</span>], </a>
+<a class="sourceLine" id="cb31-59" title="59">             <span class="st">&quot;Controlled&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_burning <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-60" title="60"><span class="st">               </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_contr_burn<span class="op">/</span><span class="dv">100</span>)},</a>
+<a class="sourceLine" id="cb31-61" title="61">             <span class="st">&quot;None&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>control[y <span class="op">-</span><span class="st"> </span><span class="dv">1</span>, <span class="st">&quot;Biomass&quot;</span>] <span class="op">*</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-62" title="62"><span class="st">               </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>bio_accu_rate_no_contr_burn<span class="op">/</span><span class="dv">100</span>)},</a>
+<a class="sourceLine" id="cb31-63" title="63">             <span class="st">&quot;Severe&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_severe_fire},</a>
+<a class="sourceLine" id="cb31-64" title="64">             <span class="st">&quot;Mild&quot;</span> =<span class="st"> </span>{control[y, <span class="st">&quot;Biomass&quot;</span>] &lt;-<span class="st"> </span>biomass_after_mild_fire})}  </a>
+<a class="sourceLine" id="cb31-65" title="65">    </a>
+<a class="sourceLine" id="cb31-66" title="66">    <span class="co"># determine wild fire type</span></a>
+<a class="sourceLine" id="cb31-67" title="67">    <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Controlled&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb31-68" title="68">           <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;Controlled&quot;</span>,</a>
+<a class="sourceLine" id="cb31-69" title="69">           <span class="dt">no =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb31-70" title="70">                <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st"> &quot;None&quot;</span>,</a>
+<a class="sourceLine" id="cb31-71" title="71">                <span class="dt">no =</span> <span class="kw">ifelse</span>(<span class="dt">test =</span> sim.fire[y,<span class="st">&quot;Fire&quot;</span>] <span class="op">==</span><span class="st"> </span><span class="dv">1</span> <span class="op">&amp;&amp;</span><span class="st"> </span>control[y,<span class="st">&quot;Biomass&quot;</span>] <span class="op">&gt;</span><span class="st"> </span>severity_threshold,</a>
+<a class="sourceLine" id="cb31-72" title="72">                     <span class="dt">yes =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Severe&quot;</span>,</a>
+<a class="sourceLine" id="cb31-73" title="73">                     <span class="dt">no =</span> control[y,<span class="st">&quot;FireType&quot;</span>] &lt;-<span class="st">  &quot;Mild&quot;</span>)))</a>
+<a class="sourceLine" id="cb31-74" title="74">     </a>
+<a class="sourceLine" id="cb31-75" title="75">    </a>
+<a class="sourceLine" id="cb31-76" title="76">  } <span class="co">#end of year loop controlled burning scenario</span></a>
+<a class="sourceLine" id="cb31-77" title="77">  </a>
+<a class="sourceLine" id="cb31-78" title="78"><span class="co"># calculate costs of no.control treatment -------------------------</span></a>
+<a class="sourceLine" id="cb31-79" title="79">  </a>
+<a class="sourceLine" id="cb31-80" title="80">  ff.cost.no.control &lt;-<span class="st"> </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_severe_fire <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-81" title="81"><span class="st">                        </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_mild_fire</a>
+<a class="sourceLine" id="cb31-82" title="82">  </a>
+<a class="sourceLine" id="cb31-83" title="83">  env.cost.no.control &lt;-<span class="st"> </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_severe_fire <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-84" title="84"><span class="st">                         </span>(no.control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_mild_fire</a>
+<a class="sourceLine" id="cb31-85" title="85">  </a>
+<a class="sourceLine" id="cb31-86" title="86">  bottomline_no_burn &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span>( ff.cost.no.control <span class="op">+</span><span class="st"> </span>env.cost.no.control) <span class="op">*</span><span class="st"> </span>area_size</a>
+<a class="sourceLine" id="cb31-87" title="87">  </a>
+<a class="sourceLine" id="cb31-88" title="88"><span class="co"># calculate costs of control treatment</span></a>
+<a class="sourceLine" id="cb31-89" title="89">  </a>
+<a class="sourceLine" id="cb31-90" title="90">  treatment.cost.control &lt;-<span class="st"> </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Controlled&quot;</span>) <span class="op">*</span><span class="st"> </span>cost_of_controlled_burning</a>
+<a class="sourceLine" id="cb31-91" title="91">  </a>
+<a class="sourceLine" id="cb31-92" title="92">  ff.cost.control &lt;-<span class="st"> </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_severe_fire <span class="op">+</span></a>
+<a class="sourceLine" id="cb31-93" title="93"><span class="st">                     </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>fire_fighting_cost_mild_fire</a>
+<a class="sourceLine" id="cb31-94" title="94">  </a>
+<a class="sourceLine" id="cb31-95" title="95">  env.cost.control &lt;-<span class="st"> </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Severe&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_severe_fire <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb31-96" title="96"><span class="st">                      </span>(control<span class="op">$</span>FireType <span class="op">==</span><span class="st"> &quot;Mild&quot;</span>) <span class="op">*</span><span class="st"> </span>env_imp_mild_fire</a>
+<a class="sourceLine" id="cb31-97" title="97"> </a>
+<a class="sourceLine" id="cb31-98" title="98">  bottomline_contr_burn &lt;-<span class="st"> </span><span class="op">-</span><span class="st"> </span>(treatment.cost.control <span class="op">+</span><span class="st"> </span>ff.cost.control <span class="op">+</span><span class="st"> </span>env.cost.control) <span class="op">*</span><span class="st"> </span>area_size</a>
+<a class="sourceLine" id="cb31-99" title="99">  </a>
+<a class="sourceLine" id="cb31-100" title="100"><span class="co"># return key results</span></a>
+<a class="sourceLine" id="cb31-101" title="101">  </a>
+<a class="sourceLine" id="cb31-102" title="102">  <span class="co"># calculate the benefit of controlled burning over no controlled burning</span></a>
+<a class="sourceLine" id="cb31-103" title="103">  benefit_of_controlled_burning &lt;-<span class="st"> </span>(bottomline_contr_burn <span class="op">-</span><span class="st"> </span>bottomline_no_burn)</a>
+<a class="sourceLine" id="cb31-104" title="104">  </a>
+<a class="sourceLine" id="cb31-105" title="105">  <span class="co">#calculate the Net Present Value (NPV) for forest management with controlled burning</span></a>
+<a class="sourceLine" id="cb31-106" title="106">  NPV_controlled_burning &lt;-<span class="st"> </span><span class="kw">discount</span>(benefit_of_controlled_burning,</a>
+<a class="sourceLine" id="cb31-107" title="107">                                     <span class="dt">discount_rate =</span> discount_rate,</a>
+<a class="sourceLine" id="cb31-108" title="108">                                     <span class="dt">calculate_NPV =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb31-109" title="109">  </a>
+<a class="sourceLine" id="cb31-110" title="110">  <span class="kw">return</span>(<span class="kw">list</span>(<span class="dt">NPV_controlled_burning =</span> NPV_controlled_burning))</a>
+<a class="sourceLine" id="cb31-111" title="111"></a>
+<a class="sourceLine" id="cb31-112" title="112">} <span class="co"># end of function</span></a></code></pre></div>
 <p>As described above, this model uses two ‘helper functions’ included in the <code>decisionSupport</code> package: 1. <code>chance_event</code> for determining whether an event occurs or not based on a specified probability 1. <code>discount</code> for adjusting net benefits for time preference (a standard economic practice). With the attribute <code>calculate_NPV</code>, the function automatically calculates the Net Present Value (the sum of discounted values)</p>
 </div>
 </div>
@@ -506,7 +743,7 @@ decisionSupport(inputFilePath = &quot;wildfire_input_table.csv&quot;, #input fil
 </div>
 <p>This diagram shows the number of times that the model produced values in a certain interval (bin). The green bars show the interval between the 45th and 55th percentile, i.e. the distribution’s median ± 5% of output values. The orange area (plus the green bars) is the interquartile range, i.e. the range between the 25th and 75th percentile. Yellow bars (plus orange and green ones) show the 90% confidence interval, i.e. the range between the 5th and 95th percentiles. In this example, the figure indicates that controlled burning probably generates a net benefit over the ‘no burn’ scenario, with 90% confidence of the net benefit being between -4214 and 14879 USD.</p>
 <p>Some descriptive statistics for this figure are contained in the <code>mcSummary.csv</code> file, which can be accessed by typing <code>read.csv(‘MCResults/mcSummary.csv’)</code>. This table has information on various percentiles, as well as the mean and chances of negative and positive values, as well as the chance that the outcome is zero:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="st">&quot;MCResults/mcSummary.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="kw">read.csv</span>(<span class="st">&quot;MCResults/mcSummary.csv&quot;</span>)</a></code></pre></div>
 <pre><code>##                        X    X0.   X5.  X10. X25. X50. X75.  X90.  X95.
 ## 1 NPV_controlled_burning -12813 -4214 -2557  154 3275 7469 11963 14879
 ##   X100. mean chance_loss chance_zero chance_gain
@@ -519,7 +756,7 @@ decisionSupport(inputFilePath = &quot;wildfire_input_table.csv&quot;, #input fil
 <p>This figure indicates, which input variables had the strongest influence on the model outputs. If also contains a vertical line at VIP=0.8, which is commonly used as a threshold for considering variables as important for explaining variation in the response variable <span class="citation">(Wold et al., 2001)</span>. In this plot, bars shown in green indicate that there is a positive relationship between values of the input variable and values of the output variable, while red bars imply a negative relationship. Variables that were not found to be important (according to the VIP=0.8 threshold) are shown in gray.</p>
 <p>In our case, 4 variables showed up as important. High values for the firefighting costs for severe fires, the environmental impact of severe fires and the biomass accumulation rate without controlled burning were associated with high net benefits of implementing controlled burns (green bars). The higher the cost of controlled burns, the lower the net benefit of this option (red bar). The most influential variable in this model was the cost of fighting severe fires. Additional clarity on the expected net benefits of controlled burns could be gained by collecting information on these important variables.</p>
 <p>Finally, the ‘welfareDecisionSummary.csv’ table contains information pertaining to the decision problem that was analyzed here:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read.csv</span>(<span class="st">&quot;MCResults/welfareDecisionSummary.csv&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1"><span class="kw">read.csv</span>(<span class="st">&quot;MCResults/welfareDecisionSummary.csv&quot;</span>)</a></code></pre></div>
 <pre><code>##                        X   X5. X50.  X95. enbPa elPa elSq eol
 ## 1 NPV_controlled_burning -4214 3275 14879  4134  603 4737 603
 ##   optimalChoice
@@ -547,24 +784,27 @@ decisionSupport(inputFilePath = &quot;wildfire_input_table.csv&quot;, #input fil
 <h4>References</h4>
 <div id="refs" class="references">
 <div id="ref-RN2">
-<p>Luedeling, E., Gassner, A., 2012. Partial least squares regression for analyzing walnut phenology in california. Agricultural and Forest Meteorology 158, 43–52. <a href="https://doi.org/10.1016/j.agrformet.2011.10.020" class="uri">https://doi.org/10.1016/j.agrformet.2011.10.020</a></p>
+<p>Luedeling, E., Gassner, A., 2012. Partial least squares regression for analyzing walnut phenology in california. Agricultural and Forest Meteorology 158, 43–52. <a href="https://doi.org/10.1016/j.agrformet.2011.10.020">https://doi.org/10.1016/j.agrformet.2011.10.020</a></p>
 </div>
 <div id="ref-RN3">
-<p>Luedeling, E., Göhring, L., 2017. R package decisionSupport: Quantitative support of decision making under uncertainty. <a href="https://CRAN.R-project.org/package=decisionSupport" class="uri">https://CRAN.R-project.org/package=decisionSupport</a></p>
+<p>Luedeling, E., Göhring, L., 2017. R package decisionSupport: Quantitative support of decision making under uncertainty. <a href="https://CRAN.R-project.org/package=decisionSupport">https://CRAN.R-project.org/package=decisionSupport</a></p>
 </div>
 <div id="ref-RN4">
-<p>Luedeling, E., Oord, A., Kiteme, B., Ogalleh, S., Malesu, M., Shepherd, K.D., De Leeuw, J., 2015. Fresh groundwater for wajir – ex-ante assessment of uncertain benefits for multiple stakeholders in a water supply project in northern kenya. Frontiers in Environmental Science 3, Article 16, 1–18. <a href="https://doi.org/10.3389/fenvs.2015.00016" class="uri">https://doi.org/10.3389/fenvs.2015.00016</a></p>
+<p>Luedeling, E., Oord, A., Kiteme, B., Ogalleh, S., Malesu, M., Shepherd, K.D., De Leeuw, J., 2015. Fresh groundwater for wajir – ex-ante assessment of uncertain benefits for multiple stakeholders in a water supply project in northern kenya. Frontiers in Environmental Science 3, Article 16, 1–18. <a href="https://doi.org/10.3389/fenvs.2015.00016">https://doi.org/10.3389/fenvs.2015.00016</a></p>
 </div>
 <div id="ref-RN5">
-<p>Luedeling, E., Shepherd, K., 2016. Decision-focused agricultural research. Solutions 7, 46–54. <a href="https://www.thesolutionsjournal.com/article/decision-focused-agricultural-research/" class="uri">https://www.thesolutionsjournal.com/article/decision-focused-agricultural-research/</a></p>
+<p>Luedeling, E., Shepherd, K., 2016. Decision-focused agricultural research. Solutions 7, 46–54. <a href="https://www.thesolutionsjournal.com/article/decision-focused-agricultural-research/">https://www.thesolutionsjournal.com/article/decision-focused-agricultural-research/</a></p>
 </div>
 <div id="ref-RN1">
-<p>Wold, S., Sjostrom, M., Eriksson, L., 2001. PLS-regression: A basic tool of chemometrics. Chemometrics and Intelligent Laboratory Systems 58, 109–130. <a href="https://doi.org/10.1016/S0169-7439(01)00155-1" class="uri">https://doi.org/10.1016/S0169-7439(01)00155-1</a></p>
+<p>Wold, S., Sjostrom, M., Eriksson, L., 2001. PLS-regression: A basic tool of chemometrics. Chemometrics and Intelligent Laboratory Systems 58, 109–130. <a href="https://doi.org/10.1016/S0169-7439(01)00155-1">https://doi.org/10.1016/S0169-7439(01)00155-1</a></p>
 </div>
 </div>
 </div>
 </div>
 
+
+
+<!-- code folding -->
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
