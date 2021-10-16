@@ -238,8 +238,8 @@ div.csl-indent {
 ## 3     3    0          0
 ## 4     4    0          1
 ## 5     5    0          0
-## 6     6    1          1
-## 7     7    1          0
+## 6     6    0          1
+## 7     7    0          0
 ## 8     8    0          1
 ## 9     9    0          0
 ## 10   10    0          1
@@ -251,7 +251,7 @@ div.csl-indent {
 ## 16   16    0          1
 ## 17   17    0          0
 ## 18   18    0          1
-## 19   19    0          0
+## 19   19    1          0
 ## 20   20    0          1</code></pre>
 <p>We want to distinguish between mild and severe fires, because these differ strongly in the impact on the ecosystem and in the costs incurred in fighting the fire. To determine whether a fire is mild or severe, we simulate the amount of combustible biomass that has accumulated in a given year. When this biomass exceeds the threshold <code>severity_threshold</code> (from the input table) at the time of a wildfire outbreak, we classify the fire as severe, otherwise as mild.</p>
 <p>To do this, we first have to simulate the amount of combustible biomass. We start by setting up two data.frames to store the results of this simulation, one for the no-burn scenario (<code>no.control</code>), and one for the scenario with controlled burns (<code>control</code>):</p>
@@ -325,49 +325,49 @@ div.csl-indent {
 <p>At this point, the fire time series is complete, with all information stored in the data.frames <code>control</code> and <code>no.control</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>control</span></code></pre></div>
 <pre><code>##    Year   Biomass   FireType
-## 1     1  76.74872       None
-## 2     2 151.18510 Controlled
-## 3     3  15.10454       None
-## 4     4  29.75400 Controlled
-## 5     5  15.10454       None
-## 6     6  29.75400 Controlled
-## 7     7  15.10454       Mild
-## 8     8  13.38556 Controlled
-## 9     9  15.10454       None
-## 10   10  29.75400 Controlled
-## 11   11  15.10454       None
-## 12   12  29.75400 Controlled
-## 13   13  15.10454       None
-## 14   14  29.75400 Controlled
-## 15   15  15.10454       None
-## 16   16  29.75400 Controlled
-## 17   17  15.10454       None
-## 18   18  29.75400 Controlled
-## 19   19  15.10454       None
-## 20   20  29.75400 Controlled</code></pre>
+## 1     1  54.35625       None
+## 2     2 101.14852 Controlled
+## 3     3  22.68555       None
+## 4     4  42.21427 Controlled
+## 5     5  22.68555       None
+## 6     6  42.21427 Controlled
+## 7     7  22.68555       None
+## 8     8  42.21427 Controlled
+## 9     9  22.68555       None
+## 10   10  42.21427 Controlled
+## 11   11  22.68555       None
+## 12   12  42.21427 Controlled
+## 13   13  22.68555       None
+## 14   14  42.21427 Controlled
+## 15   15  22.68555       None
+## 16   16  42.21427 Controlled
+## 17   17  22.68555       None
+## 18   18  42.21427 Controlled
+## 19   19  22.68555       Mild
+## 20   20  12.71984 Controlled</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>no.control</span></code></pre></div>
 <pre><code>##    Year      Biomass FireType
-## 1     1    76.748721     None
-## 2     2   151.185096     None
-## 3     3   297.815170     None
-## 4     4   586.657531     None
-## 5     5  1155.639786     None
-## 6     6  2276.461555   Severe
-## 7     7     3.335111     Mild
-## 8     8    13.385561     None
-## 9     9    26.367831     None
-## 10   10    51.941232     None
-## 11   11   102.317538     None
-## 12   12   201.552373     None
-## 13   13   397.032219     None
-## 14   14   782.102341     None
-## 15   15  1540.640891     None
-## 16   16  3034.864151     None
-## 17   17  5978.291547     None
-## 18   18 11776.464459     None
-## 19   19 23198.118406     None
-## 20   20 45697.305794     None</code></pre>
-<p>In the above simulation, the <code>controlled_burning_frequency</code> was 2 and the severity_threshold 70.</p>
+## 1     1 5.435625e+01     None
+## 2     2 1.011485e+02     None
+## 3     3 1.882216e+02     None
+## 4     4 3.502511e+02     None
+## 5     5 6.517628e+02     None
+## 6     6 1.212829e+03     None
+## 7     7 2.256886e+03     None
+## 8     8 4.199713e+03     None
+## 9     9 7.815011e+03     None
+## 10   10 1.454252e+04     None
+## 11   11 2.706136e+04     None
+## 12   12 5.035697e+04     None
+## 13   13 9.370648e+04     None
+## 14   14 1.743732e+05     None
+## 15   15 3.244813e+05     None
+## 16   16 6.038091e+05     None
+## 17   17 1.123595e+06     None
+## 18   18 2.090835e+06     None
+## 19   19 3.890718e+06   Severe
+## 20   20 3.394415e+00     None</code></pre>
+<p>In the above simulation, the <code>controlled_burning_frequency</code> was 2 and the severity_threshold 85.</p>
 <p>With this information we can move on to computing the cost implications for each scenario. We only consider three types of costs: the cost of controlled burning (<code>cost_of_controlled_burning</code>), the cost of fighting fires (<code>fire_fighting_cost</code>), and the value of the environmental damage caused by a fire (<code>env_imp</code>). We distinguish between severe and mild fires, so we get separate variables for the cost of firefighting (<code>fire_fighting_cost_mild_fire</code> and <code>fire_fighting_cost_severe_fire</code>) and the environmental impacts (<code>env_imp_mild_fire</code> and <code>env_imp_severe_fire</code>). For each year and each scenario, the applicable costs are selected (depending on the fire type) and added up to produce the total cost for each option. The result is then multiplied by the area under consideration (<code>area_size</code>) to produce the total cost.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate costs of no.control treatment -------------------------</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -400,18 +400,17 @@ div.csl-indent {
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>benefit_of_controlled_burning <span class="ot">&lt;-</span> bottomline_contr_burn <span class="sc">-</span> bottomline_no_burn</span></code></pre></div>
 <p>This produces, for example:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bottomline_no_burn</span></code></pre></div>
-<pre><code>##  [1]     0.000     0.000     0.000     0.000     0.000 -6799.111 -1308.907
+<pre><code>##  [1]     0.000     0.000     0.000     0.000     0.000     0.000     0.000
 ##  [8]     0.000     0.000     0.000     0.000     0.000     0.000     0.000
-## [15]     0.000     0.000     0.000     0.000     0.000     0.000</code></pre>
+## [15]     0.000     0.000     0.000     0.000 -9283.584     0.000</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>bottomline_contr_burn</span></code></pre></div>
-<pre><code>##  [1]     0.0000  -609.6153     0.0000  -609.6153     0.0000  -609.6153
-##  [7] -1308.9075  -609.6153     0.0000  -609.6153     0.0000  -609.6153
-## [13]     0.0000  -609.6153     0.0000  -609.6153     0.0000  -609.6153
-## [19]     0.0000  -609.6153</code></pre>
+<pre><code>##  [1]    0.0000 -559.4585    0.0000 -559.4585    0.0000 -559.4585    0.0000
+##  [8] -559.4585    0.0000 -559.4585    0.0000 -559.4585    0.0000 -559.4585
+## [15]    0.0000 -559.4585    0.0000 -559.4585 -685.9062 -559.4585</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>benefit_of_controlled_burning</span></code></pre></div>
-<pre><code>##  [1]    0.0000 -609.6153    0.0000 -609.6153    0.0000 6189.4955    0.0000
-##  [8] -609.6153    0.0000 -609.6153    0.0000 -609.6153    0.0000 -609.6153
-## [15]    0.0000 -609.6153    0.0000 -609.6153    0.0000 -609.6153</code></pre>
+<pre><code>##  [1]    0.0000 -559.4585    0.0000 -559.4585    0.0000 -559.4585    0.0000
+##  [8] -559.4585    0.0000 -559.4585    0.0000 -559.4585    0.0000 -559.4585
+## [15]    0.0000 -559.4585    0.0000 -559.4585 8597.6778 -559.4585</code></pre>
 <p>The last step in this decision model is to compute the total benefits by summing up the yearly values. A slight complication in this is that very few people are indifferent about the time at which they are faced with costs or benefits. Most people would prefer to have income now over having that same income in the future, and they feel the opposite way about expenses (most prefer expenses later). This characteristic is known as the time preference. We also say that people ‘discount’ future costs and benefits. This is considered when calculating the so-called Net Present Value (NPV), which discounts future costs or benefits by an investor-specific discount rate. Usually, the further in the future these costs and benefits occur, the lower their perceived value. <code>decisionSupport</code> provides a discounting function called <code>discount()</code>, which implements the standard equation used by economists to compute the NPV. For example, a discount rate of 4% applied to a regular income stream of 100 dollars per year over 10 years would produce:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">discount</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">100</span>,<span class="dv">10</span>)),<span class="at">discount_rate =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##  [1] 100.00000  96.15385  92.45562  88.89964  85.48042  82.19271  79.03145
