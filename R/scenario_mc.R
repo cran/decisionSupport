@@ -27,12 +27,14 @@ NULL
 #'   \code{lower} and \code{upper}, except for the row corresponding to \code{Runs} in the \code{Variable}
 #'   column (for this the entry doesn't matter). For each scenario column (whose name is the scenario
 #'   name), the scenario-specific values must be specified. If the value in the \code{Runs} row is NA,
-#'   the \code{numberOfModelRuns} object will be used instead (if that's also NA, you get an error).
+#'   the \code{numberOfModelRuns} object will be used instead (if that's also NA, you get an error). \code{param}
+#'   can also be "both", in which case both lower and upper bounds are set to the respective number, and
+#'   the distribution is set to "const".
 #' @param model_function \code{function}: The function that transforms the input distribution. It 
 #'   has to return a single \code{numeric} value or a \code{list} with named \code{numeric} values.
 #' @param  ... Optional arguments of \code{model_function}.
-#' @param numberOfModelRuns The number of times running the model function. This doesn't need to be
-#'   provided when the the \code{scenarios} data.frame contains a \code{Runs} line that specifies a
+#' @param numberOfModelRuns The number of times to run the model function. This doesn't need to be
+#'   provided when the \code{scenarios} data.frame contains a \code{Runs} line that specifies a
 #'   particular number of runs for each scenario.
 #' @param randomMethod \code{character}: The method to be used to sample the distribution
 #'   representing the input estimate. For details see option \code{method} in 
@@ -110,7 +112,8 @@ NULL
 #'  
 #' @seealso \code{\link{mcSimulation}}, \code{\link{print.mcSimulation}}, \code{\link{summary.mcSimulation}}, \code{\link{hist.mcSimulation}}, \code{\link{estimate}}, \code{\link{random.estimate}}
 #' @export
-scenario_mc<-function(base_estimate, scenarios, model_function, ..., numberOfModelRuns=NA, randomMethod = "calculate", functionSyntax="data.frameNames",
+scenario_mc<-function(base_estimate, scenarios, model_function, ..., numberOfModelRuns=NA, randomMethod = "calculate",
+                      functionSyntax="data.frameNames",
                       relativeTolerance = 0.05,
                       verbosity = 0)
 {
@@ -136,21 +139,23 @@ scenario_mc<-function(base_estimate, scenarios, model_function, ..., numberOfMod
     
     for (i in parameter_lines)
     {
-      if(!scenarios$Variable[i] %in% rownames(estim$marginal))
-        stop(paste("Estimate object doesn't contain a parameter called",scenarios$Variable[i]))
+      vari<-scenarios$Variable[i]
+      if(!vari %in% rownames(estim$marginal))
+        stop(paste("Estimate object doesn't contain a parameter called",vari))
       if(!is.na(scenarios[i,scens]))
         {if(scenarios$param[i]=="both")
-        {estim$marginal[scenarios[i,1],"lower"]<-as.numeric(scenarios[i,scens])
-          estim$marginal[scenarios[i,1],"upper"]<-as.numeric(scenarios[i,scens])}
+        {estim$marginal[vari,"lower"]       <-as.numeric(scenarios[i,scens])
+         estim$marginal[vari,"upper"]       <-as.numeric(scenarios[i,scens])
+         estim$marginal[vari,"distribution"]<-"const"}
         if(scenarios$param[i]=="lower")
           if(!is.na(as.numeric(scenarios[i,scens])))
-            estim$marginal[scenarios[i,1],"lower"]<-as.numeric(scenarios[i,scens])
+            estim$marginal[vari,"lower"]  <-as.numeric(scenarios[i,scens])
         if(scenarios$param[i]=="upper")
           if(!is.na(as.numeric(scenarios[i,scens])))
-            estim$marginal[scenarios[i,1],"upper"]<-as.numeric(scenarios[i,scens])
+            estim$marginal[vari,"upper"]  <-as.numeric(scenarios[i,scens])
         if(scenarios$param[i]=="distribution")
           if(!is.na(scenarios[i,scens]))
-            estim$marginal[scenarios[i,1],"distribution"]<-scenarios[i,scens]
+            estim$marginal[vari,"distribution"] <-scenarios[i,scens]
       }
       }
     
