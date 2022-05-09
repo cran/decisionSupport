@@ -12,7 +12,7 @@
 
 <meta name="author" content="Eike Luedeling and Cory Whitney, University of Bonn, Germany" />
 
-<meta name="date" content="2022-02-18" />
+<meta name="date" content="2022-05-09" />
 
 <title>Controlled burns in conifer forests</title>
 
@@ -163,7 +163,7 @@ div.csl-indent {
 
 <h1 class="title toc-ignore">Controlled burns in conifer forests</h1>
 <h4 class="author">Eike Luedeling and Cory Whitney, University of Bonn, Germany</h4>
-<h4 class="date">2022-02-18</h4>
+<h4 class="date">2022-05-09</h4>
 
 
 
@@ -234,22 +234,22 @@ div.csl-indent {
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sim.fire</span></code></pre></div>
 <pre><code>##    Year Fire Controlled
 ## 1     1    0          0
-## 2     2    0          1
+## 2     2    1          1
 ## 3     3    0          0
 ## 4     4    0          1
-## 5     5    0          0
+## 5     5    1          0
 ## 6     6    0          1
 ## 7     7    0          0
 ## 8     8    0          1
 ## 9     9    0          0
 ## 10   10    0          1
 ## 11   11    1          0
-## 12   12    0          1
+## 12   12    1          1
 ## 13   13    0          0
 ## 14   14    0          1
 ## 15   15    0          0
 ## 16   16    1          1
-## 17   17    0          0
+## 17   17    1          0
 ## 18   18    0          1
 ## 19   19    0          0
 ## 20   20    0          1</code></pre>
@@ -324,50 +324,50 @@ div.csl-indent {
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  } <span class="co">#end of year loop &#39;no burn&#39; scenario</span></span></code></pre></div>
 <p>At this point, the fire time series is complete, with all information stored in the data.frames <code>control</code> and <code>no.control</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>control</span></code></pre></div>
-<pre><code>##    Year    Biomass   FireType
-## 1     1  65.165120       None
-## 2     2 124.176772 Controlled
-## 3     3   9.843267       None
-## 4     4  18.757046 Controlled
-## 5     5   9.843267       None
-## 6     6  18.757046 Controlled
-## 7     7   9.843267       None
-## 8     8  18.757046 Controlled
-## 9     9   9.843267       None
-## 10   10  18.757046 Controlled
-## 11   11   9.843267       Mild
-## 12   12  12.052641 Controlled
-## 13   13   9.843267       None
-## 14   14  18.757046 Controlled
-## 15   15   9.843267       None
-## 16   16  18.757046 Controlled
-## 17   17   9.843267       None
-## 18   18  18.757046 Controlled
-## 19   19   9.843267       None
-## 20   20  18.757046 Controlled</code></pre>
+<pre><code>##    Year  Biomass   FireType
+## 1     1 43.16919       None
+## 2     2 63.65350 Controlled
+## 3     3 15.67209       None
+## 4     4 23.10869 Controlled
+## 5     5 15.67209       Mild
+## 6     6 20.92580 Controlled
+## 7     7 15.67209       None
+## 8     8 23.10869 Controlled
+## 9     9 15.67209       None
+## 10   10 23.10869 Controlled
+## 11   11 15.67209       Mild
+## 12   12 20.92580 Controlled
+## 13   13 15.67209       None
+## 14   14 23.10869 Controlled
+## 15   15 15.67209       None
+## 16   16 23.10869 Controlled
+## 17   17 15.67209       Mild
+## 18   18 20.92580 Controlled
+## 19   19 15.67209       None
+## 20   20 23.10869 Controlled</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>no.control</span></code></pre></div>
-<pre><code>##    Year      Biomass FireType
-## 1     1    65.165120     None
-## 2     2   124.176772     None
-## 3     3   236.627673     None
-## 4     4   450.910862     None
-## 5     5   859.242723     None
-## 6     6  1637.348129     None
-## 7     7  3120.083331     None
-## 8     8  5945.540729     None
-## 9     9 11329.650786     None
-## 10   10 21589.455490     None
-## 11   11 41140.243168   Severe
-## 12   12     4.099065     None
-## 13   13     7.811059     None
-## 14   14    14.884529     None
-## 15   15    28.363529     None
-## 16   16    54.048723     Mild
-## 17   17    12.052641     None
-## 18   18    22.967165     None
-## 19   19    43.765566     None
-## 20   20    83.398399     None</code></pre>
-<p>In the above simulation, the <code>controlled_burning_frequency</code> was 2 and the severity_threshold 61.</p>
+<pre><code>##    Year    Biomass FireType
+## 1     1  43.169186     None
+## 2     2  63.653500   Severe
+## 3     3   3.310227     None
+## 4     4   4.880971     None
+## 5     5   7.197053     Mild
+## 6     6  20.925804     None
+## 7     7  30.855357     None
+## 8     8  45.496607     None
+## 9     9  67.085312     None
+## 10   10  98.918125     None
+## 11   11 145.856002   Severe
+## 12   12   3.310227     Mild
+## 13   13  20.925804     None
+## 14   14  30.855357     None
+## 15   15  45.496607     None
+## 16   16  67.085312   Severe
+## 17   17   3.310227     Mild
+## 18   18  20.925804     None
+## 19   19  30.855357     None
+## 20   20  45.496607     None</code></pre>
+<p>In the above simulation, the <code>controlled_burning_frequency</code> was 2 and the severity_threshold 53.</p>
 <p>With this information we can move on to computing the cost implications for each scenario. We only consider three types of costs: the cost of controlled burning (<code>cost_of_controlled_burning</code>), the cost of fighting fires (<code>fire_fighting_cost</code>), and the value of the environmental damage caused by a fire (<code>env_imp</code>). We distinguish between severe and mild fires, so we get separate variables for the cost of firefighting (<code>fire_fighting_cost_mild_fire</code> and <code>fire_fighting_cost_severe_fire</code>) and the environmental impacts (<code>env_imp_mild_fire</code> and <code>env_imp_severe_fire</code>). For each year and each scenario, the applicable costs are selected (depending on the fire type) and added up to produce the total cost for each option. The result is then multiplied by the area under consideration (<code>area_size</code>) to produce the total cost.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate costs of no.control treatment -------------------------</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -400,19 +400,18 @@ div.csl-indent {
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>benefit_of_controlled_burning <span class="ot">&lt;-</span> bottomline_contr_burn <span class="sc">-</span> bottomline_no_burn</span></code></pre></div>
 <p>This produces, for example:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bottomline_no_burn</span></code></pre></div>
-<pre><code>##  [1]      0.0000      0.0000      0.0000      0.0000      0.0000      0.0000
-##  [7]      0.0000      0.0000      0.0000      0.0000 -11025.1243      0.0000
-## [13]      0.0000      0.0000      0.0000   -863.4464      0.0000      0.0000
-## [19]      0.0000      0.0000</code></pre>
+<pre><code>##  [1]     0.0000 -7279.2190     0.0000     0.0000    51.9453     0.0000
+##  [7]     0.0000     0.0000     0.0000     0.0000 -7279.2190    51.9453
+## [13]     0.0000     0.0000     0.0000 -7279.2190    51.9453     0.0000
+## [19]     0.0000     0.0000</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>bottomline_contr_burn</span></code></pre></div>
-<pre><code>##  [1]    0.0000 -238.9536    0.0000 -238.9536    0.0000 -238.9536    0.0000
-##  [8] -238.9536    0.0000 -238.9536 -863.4464 -238.9536    0.0000 -238.9536
-## [15]    0.0000 -238.9536    0.0000 -238.9536    0.0000 -238.9536</code></pre>
+<pre><code>##  [1]    0.0000 -786.5574    0.0000 -786.5574   51.9453 -786.5574    0.0000
+##  [8] -786.5574    0.0000 -786.5574   51.9453 -786.5574    0.0000 -786.5574
+## [15]    0.0000 -786.5574   51.9453 -786.5574    0.0000 -786.5574</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>benefit_of_controlled_burning</span></code></pre></div>
-<pre><code>##  [1]     0.0000  -238.9536     0.0000  -238.9536     0.0000  -238.9536
-##  [7]     0.0000  -238.9536     0.0000  -238.9536 10161.6779  -238.9536
-## [13]     0.0000  -238.9536     0.0000   624.4928     0.0000  -238.9536
-## [19]     0.0000  -238.9536</code></pre>
+<pre><code>##  [1]    0.0000 6492.6617    0.0000 -786.5574    0.0000 -786.5574    0.0000
+##  [8] -786.5574    0.0000 -786.5574 7331.1643 -838.5026    0.0000 -786.5574
+## [15]    0.0000 6492.6617    0.0000 -786.5574    0.0000 -786.5574</code></pre>
 <p>The last step in this decision model is to compute the total benefits by summing up the yearly values. A slight complication in this is that very few people are indifferent about the time at which they are faced with costs or benefits. Most people would prefer to have income now over having that same income in the future, and they feel the opposite way about expenses (most prefer expenses later). This characteristic is known as the time preference. We also say that people ‘discount’ future costs and benefits. This is considered when calculating the so-called Net Present Value (NPV), which discounts future costs or benefits by an investor-specific discount rate. Usually, the further in the future these costs and benefits occur, the lower their perceived value. <code>decisionSupport</code> provides a discounting function called <code>discount()</code>, which implements the standard equation used by economists to compute the NPV. For example, a discount rate of 4% applied to a regular income stream of 100 dollars per year over 10 years would produce:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">discount</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">100</span>,<span class="dv">10</span>)),<span class="at">discount_rate =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##  [1] 100.00000  96.15385  92.45562  88.89964  85.48042  82.19271  79.03145

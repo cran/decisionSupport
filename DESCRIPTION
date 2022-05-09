@@ -1,8 +1,8 @@
 Package: decisionSupport
 Type: Package
 Title: Quantitative Support of Decision Making under Uncertainty
-Version: 1.110
-Date: 2022-02-18
+Version: 1.111
+Date: 2022-05-09
 Authors@R: c(
     person("Eike", "Luedeling",  email = "eike@eikeluedeling.com",  role = c("cre", "aut"), comment="University of Bonn"),
     person("Lutz", "Goehring", email = "lutz.goehring@gmx.de", role = "aut", comment="ICRAF and Lutz Goehring Consulting"),
@@ -54,7 +54,7 @@ Collate: 'as.data.frame.mcSimulation.R' 'chance_event.R'
         'sample_simple_CPT.R' 'scenario_mc.R' 'summary.mcSimulation.R'
         'temp_situations.R' 'vv.R'
 NeedsCompilation: no
-Packaged: 2022-02-18 07:48:50 UTC; Eike
+Packaged: 2022-05-09 12:12:04 UTC; Eike
 Author: Eike Luedeling [cre, aut] (University of Bonn),
   Lutz Goehring [aut] (ICRAF and Lutz Goehring Consulting),
   Katja Schiffers [aut] (University of Bonn),
@@ -62,4 +62,4 @@ Author: Eike Luedeling [cre, aut] (University of Bonn),
   Eduardo Fernandez [aut] (University of Bonn)
 Maintainer: Eike Luedeling <eike@eikeluedeling.com>
 Repository: CRAN
-Date/Publication: 2022-02-18 09:00:02 UTC
+Date/Publication: 2022-05-09 12:30:02 UTC
