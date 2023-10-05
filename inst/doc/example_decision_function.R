@@ -1,4 +1,4 @@
-## ---- include = F-------------------------------------------------------------
+## ----include = F--------------------------------------------------------------
 #set global options for knitr chunks 
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -7,7 +7,7 @@ knitr::opts_chunk$set(
   fig.height=3.5
 )
 
-## ---- warning = F, include = F------------------------------------------------
+## ----warning = F, include = F-------------------------------------------------
 
 #Automatically write R package citation entries to a .bib file
 knitr::write_bib(c(.packages(), 
@@ -20,7 +20,7 @@ knitr::write_bib(c(.packages(),
                    'decisionSupport'), 'packages.bib')
 
 
-## ---- eval = FALSE------------------------------------------------------------
+## ----eval = FALSE-------------------------------------------------------------
 #  install.packages("decisionSupport")
 
 ## -----------------------------------------------------------------------------
