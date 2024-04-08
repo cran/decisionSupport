@@ -1,4 +1,4 @@
-35669b6e5f54aa4b8c680998c13303dd *DESCRIPTION
+2d9775831ac1318f9be256f6c68533e2 *DESCRIPTION
 fe4024a244082ec41fa9daa39707e57b *NAMESPACE
 bcdbdb9a0188b16dcd5b477576a88c12 *R/as.data.frame.mcSimulation.R
 2286ea1a6becf42ed9b1935866eef91d *R/chance_event.R
@@ -22,7 +22,7 @@ ae58c31a780a4e1a9f74ea4f41f9275e *R/multi_EVPI.R
 8c232716c8fe812a29cf3c87b4c9bd25 *R/paramtnormci_numeric.R
 adf2194c9375da42aac078a9233f27b5 *R/plainNames2data.frameNames.R
 2c19d9c9cab1d899829ba2457c5f8c9a *R/plot_cashflow.R
-330219762a2178e68d1cadaf0d558296 *R/plot_distributions.R
+88d06fb0fa83858dba88968fa980ec5c *R/plot_distributions.R
 42af37f96e67c163591cf92266fbddfa *R/plot_evpi.R
 f6b489a75cb5bd5718b96f0b81b2cd35 *R/plot_pls.R
 09068819dd6248f01085c99762892732 *R/plsr.mcSimulation.R
@@ -46,10 +46,10 @@ b907d588f2ce85904d0f85dabc5b634d *README.md
 bb8a42760833ca239609addc1319b039 *build/vignette.rds
 0b13eea0188c3b7d7911ab117988b999 *inst/doc/example_decision_function.R
 ef98941ff29fc2b1d4c3b2744b90c5af *inst/doc/example_decision_function.Rmd
-2501b3a25bebe21454fa417e0872572c *inst/doc/example_decision_function.html
+f531612483745a830da3f870a5a758d5 *inst/doc/example_decision_function.html
 e9add9f2414becb57ddc4e94018adb14 *inst/doc/wildfire_example.R
 e95367d31ba3ba767e75ad7fdd8aecba *inst/doc/wildfire_example.Rmd
-0058ec1086cb221acf53a12f4adc27e4 *inst/doc/wildfire_example.html
+b5ab32a07525f7759a3e29ec7964db26 *inst/doc/wildfire_example.html
 b37f954ed8682eca75b37e0adfb5a124 *inst/extdata/profit-4.csv
 838acd62fcba438b038b92c18ed02ce5 *inst/extdata/profit-4_cor.csv
 2f724a301284d71aeccfd84caf8ac3a6 *man/as.data.frame.mcSimulation.Rd
@@ -79,7 +79,7 @@ a3bd4ccb868ba26cb1c8ab82247b9490 *man/paramtnormci_fit.Rd
 869cb490420611cc0a5f49c45937ef30 *man/paramtnormci_numeric.Rd
 2ba4e501377aa5ab245fb25a7fc693fe *man/plainNames2data.frameNames.Rd
 fe75684bb58e7a811094dfd657a96c7b *man/plot_cashflow.Rd
-b6151d6ae52d6e575f9884251e41df88 *man/plot_distributions.Rd
+d091f0be88d56a28f0f6b720709e598e *man/plot_distributions.Rd
 6a6bf56bf2ea840e306fb4974c00dc94 *man/plot_evpi.Rd
 29338bf81cd71b32ffeb83d32c2c7b09 *man/plot_pls.Rd
 c9c9223db9a11fe318da6210dbaa252d *man/plsr.mcSimulation.Rd

@@ -1,8 +1,8 @@
 Package: decisionSupport
 Type: Package
 Title: Quantitative Support of Decision Making under Uncertainty
-Version: 1.113
-Date: 2023-10-05
+Version: 1.114
+Date: 2024-04-08
 Authors@R: c(
     person("Eike", "Luedeling",  email = "eike@eikeluedeling.com",  role = c("cre", "aut"), comment="University of Bonn"),
     person("Lutz", "Goehring", email = "lutz.goehring@gmx.de", role = "aut", comment="ICRAF and Lutz Goehring Consulting"),
@@ -26,17 +26,16 @@ Description: Supporting the quantitative analysis of binary welfare based
 License: GPL-3
 Depends: R (>= 3.1.3)
 Imports: assertthat, chillR (>= 0.62), class, dplyr, fANCOVA (>= 0.5),
-        ggplot2 (>= 3.2.0), ggstance, grDevices, magrittr, msm (>=
-        1.5), mvtnorm (>= 1.0.2), nleqslv (>= 2.6), patchwork,
-        rriskDistributions (>= 2.0), stats (>= 3.1.3), stringr, tidyr,
-        tidyselect
+        ggplot2 (>= 3.2.0), grDevices, magrittr, msm (>= 1.5), mvtnorm
+        (>= 1.0.2), nleqslv (>= 2.6), patchwork, rriskDistributions (>=
+        2.0), stats (>= 3.1.3), stringr, tidyr, tidyselect
 Suggests: eha (>= 2.4.2), knitr, mc2d (>= 0.1.15), pls (>= 2.4.3),
         rmarkdown, scales, testthat (>= 0.9.1)
 VignetteBuilder: knitr
 URL: http://www.worldagroforestry.org/
 Encoding: UTF-8
 Classification/JEL: I38, O16, O21, O22, O23
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Collate: 'as.data.frame.mcSimulation.R' 'chance_event.R'
         'compound_figure.R' 'paramtnormci_fit.R'
         'paramtnormci_numeric.R' 'rtnorm90ci.R' 'rdistq_fit.R'
@@ -54,7 +53,7 @@ Collate: 'as.data.frame.mcSimulation.R' 'chance_event.R'
         'sample_simple_CPT.R' 'scenario_mc.R' 'summary.mcSimulation.R'
         'temp_situations.R' 'vv.R'
 NeedsCompilation: no
-Packaged: 2023-10-05 19:32:54 UTC; Eike
+Packaged: 2024-04-08 14:59:39 UTC; luede
 Author: Eike Luedeling [cre, aut] (University of Bonn),
   Lutz Goehring [aut] (ICRAF and Lutz Goehring Consulting),
   Katja Schiffers [aut] (University of Bonn),
@@ -62,4 +61,4 @@ Author: Eike Luedeling [cre, aut] (University of Bonn),
   Eduardo Fernandez [aut] (University of Bonn)
 Maintainer: Eike Luedeling <eike@eikeluedeling.com>
 Repository: CRAN
-Date/Publication: 2023-10-05 23:20:02 UTC
+Date/Publication: 2024-04-08 15:20:05 UTC

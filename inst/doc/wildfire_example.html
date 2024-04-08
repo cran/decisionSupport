@@ -12,7 +12,7 @@
 
 <meta name="author" content="Eike Luedeling and Cory Whitney, University of Bonn, Germany" />
 
-<meta name="date" content="2023-10-05" />
+<meta name="date" content="2024-04-08" />
 
 <title>Controlled burns in conifer forests</title>
 
@@ -51,7 +51,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -150,6 +150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 div.csl-bib-body { }
 div.csl-entry {
 clear: both;
+margin-bottom: 0em;
 }
 .hanging div.csl-entry {
 margin-left:2em;
@@ -363,7 +364,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h1 class="title toc-ignore">Controlled burns in conifer forests</h1>
 <h4 class="author">Eike Luedeling and Cory Whitney, University of Bonn,
 Germany</h4>
-<h4 class="date">2023-10-05</h4>
+<h4 class="date">2024-04-08</h4>
 
 
 
@@ -525,23 +526,23 @@ scenario.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>sim.fire <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Year=</span><span class="dv">1</span><span class="sc">:</span>n_years, Fire, Controlled)</span>
 <span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>sim.fire</span></code></pre></div>
 <pre><code>##    Year Fire Controlled
-## 1     1    1          0
-## 2     2    1          1
+## 1     1    0          0
+## 2     2    0          1
 ## 3     3    0          0
 ## 4     4    0          1
 ## 5     5    0          0
 ## 6     6    0          1
 ## 7     7    0          0
-## 8     8    0          1
+## 8     8    1          1
 ## 9     9    0          0
 ## 10   10    0          1
 ## 11   11    0          0
 ## 12   12    0          1
 ## 13   13    0          0
 ## 14   14    0          1
-## 15   15    0          0
-## 16   16    1          1
-## 17   17    1          0
+## 15   15    1          0
+## 16   16    0          1
+## 17   17    0          0
 ## 18   18    0          1
 ## 19   19    0          0
 ## 20   20    0          1</code></pre>
@@ -654,49 +655,49 @@ fires don’t occur here:</p>
 stored in the data.frames <code>control</code> and
 <code>no.control</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>control</span></code></pre></div>
-<pre><code>##    Year  Biomass   FireType
-## 1     1 54.99103       Mild
-## 2     2 15.07283 Controlled
-## 3     3 11.44058       None
-## 4     4 19.07255 Controlled
-## 5     5 11.44058       None
-## 6     6 19.07255 Controlled
-## 7     7 11.44058       None
-## 8     8 19.07255 Controlled
-## 9     9 11.44058       None
-## 10   10 19.07255 Controlled
-## 11   11 11.44058       None
-## 12   12 19.07255 Controlled
-## 13   13 11.44058       None
-## 14   14 19.07255 Controlled
-## 15   15 11.44058       None
-## 16   16 19.07255 Controlled
-## 17   17 11.44058       Mild
-## 18   18 15.07283 Controlled
-## 19   19 11.44058       None
-## 20   20 19.07255 Controlled</code></pre>
+<pre><code>##    Year   Biomass   FireType
+## 1     1  84.88296       None
+## 2     2 144.57071 Controlled
+## 3     3  21.08383       None
+## 4     4  35.90949 Controlled
+## 5     5  21.08383       None
+## 6     6  35.90949 Controlled
+## 7     7  21.08383       None
+## 8     8  35.90949 Controlled
+## 9     9  21.08383       None
+## 10   10  35.90949 Controlled
+## 11   11  21.08383       None
+## 12   12  35.90949 Controlled
+## 13   13  21.08383       None
+## 14   14  35.90949 Controlled
+## 15   15  21.08383       Mild
+## 16   16  19.65720 Controlled
+## 17   17  21.08383       None
+## 18   18  35.90949 Controlled
+## 19   19  21.08383       None
+## 20   20  35.90949 Controlled</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>no.control</span></code></pre></div>
-<pre><code>##    Year      Biomass FireType
-## 1     1    54.991034     Mild
-## 2     2    15.072830     Mild
-## 3     3    15.072830     None
-## 4     4    25.127868     None
-## 5     5    41.890590     None
-## 6     6    69.835674     None
-## 7     7   116.422835     None
-## 8     8   194.088149     None
-## 9     9   323.563752     None
-## 10   10   539.412129     None
-## 11   11   899.252290     None
-## 12   12  1499.140709     None
-## 13   13  2499.212836     None
-## 14   14  4166.429982     None
-## 15   15  6945.842526     None
-## 16   16 11579.392573   Severe
-## 17   17     3.938097     Mild
-## 18   18    15.072830     None
-## 19   19    25.127868     None
-## 20   20    41.890590     None</code></pre>
+<pre><code>##    Year     Biomass FireType
+## 1     1   84.882958     None
+## 2     2  144.570713     None
+## 3     3  246.229533     None
+## 4     4  419.372511     None
+## 5     5  714.265673     None
+## 6     6 1216.520965     None
+## 7     7 2071.950695     None
+## 8     8 3528.899055   Severe
+## 9     9    2.811919     None
+## 10   10    4.789197     None
+## 11   11    8.156850     None
+## 12   12   13.892561     None
+## 13   13   23.661492     None
+## 14   14   40.299712     None
+## 15   15   68.637547     Mild
+## 16   16   19.657204     None
+## 17   17   33.479701     None
+## 18   18   57.021861     None
+## 19   19   97.118331     None
+## 20   20  165.409720     None</code></pre>
 <p>In the above simulation, the
 <code>controlled_burning_frequency</code> was 2 and the
 severity_threshold 106.</p>
@@ -750,20 +751,18 @@ simply calculated as the difference between control and no control:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>benefit_of_controlled_burning <span class="ot">&lt;-</span> bottomline_contr_burn <span class="sc">-</span> bottomline_no_burn</span></code></pre></div>
 <p>This produces, for example:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>bottomline_no_burn</span></code></pre></div>
-<pre><code>##  [1]   -80.88569   -80.88569     0.00000     0.00000     0.00000     0.00000
-##  [7]     0.00000     0.00000     0.00000     0.00000     0.00000     0.00000
-## [13]     0.00000     0.00000     0.00000 -6586.88594   -80.88569     0.00000
-## [19]     0.00000     0.00000</code></pre>
+<pre><code>##  [1]     0.0000     0.0000     0.0000     0.0000     0.0000     0.0000
+##  [7]     0.0000 -3978.9844     0.0000     0.0000     0.0000     0.0000
+## [13]     0.0000     0.0000   400.6006     0.0000     0.0000     0.0000
+## [19]     0.0000     0.0000</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>bottomline_contr_burn</span></code></pre></div>
-<pre><code>##  [1]   -80.88569 -1052.29797     0.00000 -1052.29797     0.00000 -1052.29797
-##  [7]     0.00000 -1052.29797     0.00000 -1052.29797     0.00000 -1052.29797
-## [13]     0.00000 -1052.29797     0.00000 -1052.29797   -80.88569 -1052.29797
-## [19]     0.00000 -1052.29797</code></pre>
+<pre><code>##  [1]    0.0000 -677.8534    0.0000 -677.8534    0.0000 -677.8534    0.0000
+##  [8] -677.8534    0.0000 -677.8534    0.0000 -677.8534    0.0000 -677.8534
+## [15]  400.6006 -677.8534    0.0000 -677.8534    0.0000 -677.8534</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>benefit_of_controlled_burning</span></code></pre></div>
-<pre><code>##  [1]     0.0000  -971.4123     0.0000 -1052.2980     0.0000 -1052.2980
-##  [7]     0.0000 -1052.2980     0.0000 -1052.2980     0.0000 -1052.2980
-## [13]     0.0000 -1052.2980     0.0000  5534.5880     0.0000 -1052.2980
-## [19]     0.0000 -1052.2980</code></pre>
+<pre><code>##  [1]    0.0000 -677.8534    0.0000 -677.8534    0.0000 -677.8534    0.0000
+##  [8] 3301.1310    0.0000 -677.8534    0.0000 -677.8534    0.0000 -677.8534
+## [15]    0.0000 -677.8534    0.0000 -677.8534    0.0000 -677.8534</code></pre>
 <p>The last step in this decision model is to compute the total benefits
 by summing up the yearly values. A slight complication in this is that
 very few people are indifferent about the time at which they are faced
@@ -1179,7 +1178,7 @@ Agroforestry Centre, which supported its development.</p>
 </div>
 <div id="references" class="section level4 unnumbered">
 <h4 class="unnumbered">References</h4>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-RN2" class="csl-entry">
 Luedeling, Eike, and Anja Gassner. 2012. <span>“Partial Least Squares
 Regression for Analyzing Walnut Phenology in California.”</span> Journal
